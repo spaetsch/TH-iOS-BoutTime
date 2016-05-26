@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Bout Time
+//  BoutTime
 //
 //  Created by Sarah Paetsch on 5/26/16.
 //  Copyright © 2016 Sarah Paetsch. All rights reserved.
