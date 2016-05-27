@@ -10,6 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    required init?(coder aDecoder: NSCoder) {
+        do {
+            let dictionary = try PlistConverter.dictionaryFromFile("BookQuiz", ofType: "plist")
+            print(dictionary)
+           // let inventory = try InventoryUnarchiver.vendingInventoryFromDictionary(dictionary)
+           // self.vendingMachine = VendingMachine(inventory: inventory)
+        } catch let error {
+            //TODO: be more specific?
+            fatalError("\(error)")
+        }
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -26,7 +26,7 @@ enum QuizError: ErrorType {
 }
 
 
-// Helper Classes - from vending machine project
+// Helper Classes
 
 class PlistConverter {
     class func dictionaryFromFile(resource: String, ofType type: String) throws -> [String : AnyObject] {
@@ -43,7 +43,7 @@ class PlistConverter {
     }
 }
 
-class QuizUnarchiver {
+//class InventoryUnarchiver {
 //    class func vendingInventoryFromDictionary(dictionary: [String : AnyObject]) throws -> [VendingSelection : ItemType]{
 //        var inventory: [VendingSelection : ItemType] = [:]
 //        
@@ -62,4 +62,4 @@ class QuizUnarchiver {
 //        }
 //        return inventory
 //    }
-}
+//}

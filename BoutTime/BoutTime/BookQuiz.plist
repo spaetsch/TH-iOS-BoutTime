@@ -4,21 +4,21 @@
 <dict>
 	<key>Q2</key>
 	<dict>
-		<key>&quot;Kindred&quot;</key>
-		<string></string>
-		<key>&quot;Octavia Butler&quot;</key>
-		<string></string>
-		<key>1979</key>
-		<integer>0</integer>
+		<key>desc1</key>
+		<string>Kindred</string>
+		<key>desc2</key>
+		<string>Octavia Butler</string>
+		<key>year</key>
+		<integer>1979</integer>
 	</dict>
 	<key>Q1</key>
 	<dict>
-		<key>&quot;A Wrinkle in Time&quot;</key>
-		<string></string>
-		<key>&quot;Madeleine L&apos;Engle&quot;</key>
-		<string></string>
-		<key>1962</key>
-		<integer>0</integer>
+		<key>desc1</key>
+		<string>A Wrinkle in Time</string>
+		<key>desc2</key>
+		<string>Madeleine L&apos;Engle</string>
+		<key>year</key>
+		<integer>1962</integer>
 	</dict>
 </dict>
 </plist>
