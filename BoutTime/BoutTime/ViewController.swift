@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         do {
-            let dictionary = try PlistConverter.dictionaryFromFile("BookQuiz", ofType: "plist")
+            let dictionary = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
             print(dictionary)
            // let inventory = try InventoryUnarchiver.vendingInventoryFromDictionary(dictionary)
            // self.vendingMachine = VendingMachine(inventory: inventory)

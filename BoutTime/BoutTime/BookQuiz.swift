@@ -29,17 +29,17 @@ enum QuizError: ErrorType {
 // Helper Classes
 
 class PlistConverter {
-    class func dictionaryFromFile(resource: String, ofType type: String) throws -> [String : AnyObject] {
+    class func arrayFromFile(resource: String, ofType type: String) throws -> [[String : AnyObject]] {
         
         guard let path = NSBundle.mainBundle().pathForResource(resource, ofType: type) else {
             throw QuizError.InvalidResource
         }
         
-        guard let dictionary = NSDictionary(contentsOfFile: path),
-            let castDictionary =  dictionary as? [String : AnyObject] else {
+        guard let array = NSArray(contentsOfFile: path),
+            let castArray = array as? [[String : AnyObject]] else {
                 throw QuizError.ConversionError
         }
-        return castDictionary
+        return castArray
     }
 }
 
