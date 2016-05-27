@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Q2</key>
+<array>
 	<dict>
-		<key>desc1</key>
+		<key>title</key>
 		<string>Kindred</string>
-		<key>desc2</key>
+		<key>author</key>
 		<string>Octavia Butler</string>
 		<key>year</key>
 		<integer>1979</integer>
 	</dict>
-	<key>Q1</key>
 	<dict>
-		<key>desc1</key>
+		<key>title</key>
 		<string>A Wrinkle in Time</string>
-		<key>desc2</key>
+		<key>author</key>
 		<string>Madeleine L&apos;Engle</string>
 		<key>year</key>
 		<integer>1962</integer>
 	</dict>
-</dict>
+</array>
 </plist>

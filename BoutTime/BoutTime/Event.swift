@@ -9,13 +9,12 @@
 import Foundation
 
 protocol EventType {
-    var desc1: String { get }
-    var desc2: String { get }
+    var desc: String { get }
     var year: Int { get }
 }
 
 struct Book: EventType {
-    var desc1: String
-    var desc2: String
+    var desc: String
+    var author: String
     var year: Int
 }
