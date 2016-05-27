@@ -29,37 +29,37 @@ enum QuizError: ErrorType {
 // Helper Classes
 
 class PlistConverter {
-    class func arrayFromFile(resource: String, ofType type: String) throws -> [[String : AnyObject]] {
+    class func arrayFromFile(resource: String, ofType type: String) throws -> [[String : String]] {
         
         guard let path = NSBundle.mainBundle().pathForResource(resource, ofType: type) else {
             throw QuizError.InvalidResource
         }
         
         guard let array = NSArray(contentsOfFile: path),
-            let castArray = array as? [[String : AnyObject]] else {
+            let castArray = array as? [[String : String]] else {
                 throw QuizError.ConversionError
         }
         return castArray
     }
 }
 
-//class InventoryUnarchiver {
-//    class func vendingInventoryFromDictionary(dictionary: [String : AnyObject]) throws -> [VendingSelection : ItemType]{
-//        var inventory: [VendingSelection : ItemType] = [:]
-//        
-//        for (key, value) in dictionary {
-//            if let itemDict = value as? [String : Double],
-//                let price = itemDict["price"],
-//                let quantity = itemDict["quantity"] {
-//                
-//                let item = VendingItem(price: price, quantity: quantity)
-//                
-//                guard let key = VendingSelection(rawValue: key) else {
-//                    throw InventoryError.InvalidKey
-//                }
-//                inventory.updateValue(item, forKey: key)
-//            }
-//        }
-//        return inventory
-//    }
-//}
+
+class QuizUnarchiver {
+    class func bookQuizFromArray(array: [[String : String]]) -> [Book]{
+        var quiz: [Book] = []
+
+        for book in array {
+            print("book: \(book)\n")
+            
+            if let desc = book["title"],
+            let author = book["author"],
+            let year = book["year"],
+            let convertYr = Int(year){
+                let newBook = Book(desc: desc, author: author, year: convertYr)
+                quiz.append(newBook)
+            }
+            
+        }
+        return quiz
+    }
+}

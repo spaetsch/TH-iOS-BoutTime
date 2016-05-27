@@ -8,7 +8,7 @@
 		<key>author</key>
 		<string>Octavia Butler</string>
 		<key>year</key>
-		<integer>1979</integer>
+		<string>1979</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -16,7 +16,7 @@
 		<key>author</key>
 		<string>Madeleine L&apos;Engle</string>
 		<key>year</key>
-		<integer>1962</integer>
+		<string>1962</string>
 	</dict>
 </array>
 </plist>
