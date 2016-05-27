@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Quiz {
+class BookQuiz {
     var events: [Book]
     
     init(events: [Book]){
@@ -16,8 +16,7 @@ class Quiz {
     }
 }
 
-
-// Error Types - from vending
+// Error Types
 
 enum QuizError: ErrorType {
     case InvalidResource
@@ -58,7 +57,6 @@ class QuizUnarchiver {
                 let newBook = Book(desc: desc, author: author, year: convertYr)
                 quiz.append(newBook)
             }
-            
         }
         return quiz
     }
