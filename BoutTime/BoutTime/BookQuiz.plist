@@ -4,6 +4,22 @@
 <array>
 	<dict>
 		<key>title</key>
+		<string>The Children of Men</string>
+		<key>author</key>
+		<string>P.D. James</string>
+		<key>year</key>
+		<string>1992</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>The Handmaid&apos;s Tale</string>
+		<key>author</key>
+		<string>Margaret Atwood</string>
+		<key>year</key>
+		<string>1985</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>Kindred</string>
 		<key>author</key>
 		<string>Octavia Butler</string>
