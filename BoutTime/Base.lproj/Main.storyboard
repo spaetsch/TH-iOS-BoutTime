@@ -40,6 +40,8 @@
                                                             <constraint firstAttribute="width" constant="40" id="Tel-W9-7sR"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="down_full"/>
+                                                        <state key="selected" backgroundImage="down_full_selected"/>
+                                                        <state key="highlighted" backgroundImage="down_full_selected"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -58,13 +60,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-mo-aUZ">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aij-8e-mDZ" userLabel="Q2UpButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aij-8e-mDZ" userLabel="Q2UpButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="53"/>
                                                         <state key="normal" backgroundImage="up_half"/>
+                                                        <state key="selected" backgroundImage="up_half_selected"/>
+                                                        <state key="highlighted" backgroundImage="up_half_selected"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zx-J1-cy1" userLabel="Q2DownButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zx-J1-cy1" userLabel="Q2DownButton">
                                                         <rect key="frame" x="0.0" y="53" width="40" height="53"/>
                                                         <state key="normal" backgroundImage="down_half"/>
+                                                        <state key="selected" backgroundImage="down_half_selected"/>
+                                                        <state key="highlighted" backgroundImage="down_half_selected"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -86,13 +92,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-Ln-vgx">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-Fu-LWO" userLabel="Q3UpButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-Fu-LWO" userLabel="Q3UpButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="53"/>
                                                         <state key="normal" backgroundImage="up_half"/>
+                                                        <state key="selected" backgroundImage="up_half_selected"/>
+                                                        <state key="highlighted" backgroundImage="up_half_selected"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-cC-M2R" userLabel="Q3DownButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-cC-M2R" userLabel="Q3DownButton">
                                                         <rect key="frame" x="0.0" y="53" width="40" height="53"/>
                                                         <state key="normal" backgroundImage="down_half"/>
+                                                        <state key="selected" backgroundImage="down_half_selected"/>
+                                                        <state key="highlighted" backgroundImage="down_half_selected"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -120,6 +130,8 @@
                                                             <constraint firstAttribute="width" constant="40" id="nh8-ZB-i9c"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="up_full"/>
+                                                        <state key="selected" backgroundImage="up_full_selected"/>
+                                                        <state key="highlighted" backgroundImage="up_full_selected"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -160,8 +172,12 @@
     </scenes>
     <resources>
         <image name="down_full" width="158" height="457"/>
+        <image name="down_full_selected" width="158" height="457"/>
         <image name="down_half" width="158" height="229"/>
+        <image name="down_half_selected" width="158" height="229"/>
         <image name="up_full" width="158" height="457"/>
+        <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
+        <image name="up_half_selected" width="158" height="229"/>
     </resources>
 </document>
