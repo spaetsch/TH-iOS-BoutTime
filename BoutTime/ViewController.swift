@@ -12,7 +12,6 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var Q1Label: UILabel!
     @IBOutlet weak var Q2Label: UILabel!
     @IBOutlet weak var Q3Label: UILabel!
@@ -27,14 +26,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TimerLabel: UILabel!
     
+    var currentQuiz: BookQuiz
+    var shuffledQuiz = BookQuiz(events: [])
+    
+    let numberOfChoices = 4
+    let numberOfRounds = 6
+    var numberOfCorrect = 0
+    let maxTime = 60
 
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
-            print("array: \(array)\n")
             
-            let quiz = QuizUnarchiver.bookQuizFromArray(array)
-            print("quiz: \(quiz)\n")
+            self.currentQuiz = BookQuiz(events:QuizUnarchiver.bookQuizFromArray(array))
+            print("quiz.events[0].title: \(self.currentQuiz.events[0].desc)\n")
             
         } catch let error {
             //TODO: be more specific?
@@ -46,6 +51,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        shuffledQuiz = shuffleQuiz(currentQuiz)
+        displayChoices()
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +83,10 @@ class ViewController: UIViewController {
         return BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
     }
     
+    func displayChoices(){
+        Q1Label.text = ("Moo")
+        Q2Label.text = "\(shuffledQuiz.events[0].desc) \nby \(shuffledQuiz.events[0].author)"
+    }
 
 }
 

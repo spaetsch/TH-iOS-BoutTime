@@ -34,5 +34,29 @@
 		<key>year</key>
 		<string>1962</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Dragonflight</string>
+		<key>author</key>
+		<string>Anne McCaffrey</string>
+		<key>year</key>
+		<string>1968</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>The Speed of Dark</string>
+		<key>author</key>
+		<string>Elizabeth Moon</string>
+		<key>year</key>
+		<string>2003</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Ancillary Justice</string>
+		<key>author</key>
+		<string>Ann Leckie</string>
+		<key>year</key>
+		<string>2013</string>
+	</dict>
 </array>
 </plist>

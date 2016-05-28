@@ -18,8 +18,8 @@ class Book: EventType {
     var author: String
     var year: Int
     
-    init(desc: title, author: author, year: year){
-        self.desc = title
+    init(desc: String, author: String, year: Int){
+        self.desc = desc
         self.author = author
         self.year = year
     }
