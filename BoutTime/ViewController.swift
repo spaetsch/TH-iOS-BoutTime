@@ -11,6 +11,22 @@ import GameKit
 import AudioToolbox
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var Q1Label: UILabel!
+    @IBOutlet weak var Q2Label: UILabel!
+    @IBOutlet weak var Q3Label: UILabel!
+    @IBOutlet weak var Q4Label: UILabel!
+    
+    @IBOutlet weak var Q1DownButton: UIButton!
+    @IBOutlet weak var Q2UpButton: UIButton!
+    @IBOutlet weak var Q2DownButton: UIButton!
+    @IBOutlet weak var Q3UpButton: UIButton!
+    @IBOutlet weak var Q3DownButton: UIButton!
+    @IBOutlet weak var Q4UpButton: UIButton!
+    
+    @IBOutlet weak var TimerLabel: UILabel!
+    
 
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -20,8 +36,6 @@ class ViewController: UIViewController {
             let quiz = QuizUnarchiver.bookQuizFromArray(array)
             print("quiz: \(quiz)\n")
             
-           // let inventory = try InventoryUnarchiver.vendingInventoryFromDictionary(dictionary)
-           // self.vendingMachine = VendingMachine(inventory: inventory)
         } catch let error {
             //TODO: be more specific?
             fatalError("\(error)")

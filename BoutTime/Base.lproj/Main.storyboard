@@ -164,6 +164,19 @@
                             <constraint firstItem="Uv4-te-oGr" firstAttribute="top" secondItem="fjx-fp-TSm" secondAttribute="bottom" constant="10" id="yIl-P9-COC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Q1DownButton" destination="FMU-Lz-PyA" id="y5k-sQ-YP7"/>
+                        <outlet property="Q1Label" destination="aEk-oZ-eJf" id="fbL-KG-xWJ"/>
+                        <outlet property="Q2DownButton" destination="6Zx-J1-cy1" id="76e-KD-zMI"/>
+                        <outlet property="Q2Label" destination="oIG-59-3io" id="U43-IQ-Rds"/>
+                        <outlet property="Q2UpButton" destination="Aij-8e-mDZ" id="gRK-Xr-lo3"/>
+                        <outlet property="Q3DownButton" destination="e8e-cC-M2R" id="dYU-al-Mpc"/>
+                        <outlet property="Q3Label" destination="RRa-sC-xSL" id="UTL-Cj-oYF"/>
+                        <outlet property="Q3UpButton" destination="RfG-Fu-LWO" id="ItB-7s-kpk"/>
+                        <outlet property="Q4Label" destination="aoM-Om-0Sb" id="F3o-g5-3vY"/>
+                        <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
+                        <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
