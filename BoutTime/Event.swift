@@ -13,8 +13,14 @@ protocol EventType {
     var year: Int { get }
 }
 
-struct Book: EventType {
+class Book: EventType {
     var desc: String
     var author: String
     var year: Int
+    
+    init(desc: title, author: author, year: year){
+        self.desc = title
+        self.author = author
+        self.year = year
+    }
 }

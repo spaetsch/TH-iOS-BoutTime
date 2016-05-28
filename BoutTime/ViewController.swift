@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GameKit
+import AudioToolbox
 
 class ViewController: UIViewController {
 
@@ -53,6 +55,13 @@ class ViewController: UIViewController {
     
     // bonus
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
+    
+    // MARK: Helper Functions
+
+    func shuffleQuiz(original: BookQuiz) -> BookQuiz {
+        return BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
+    }
+    
 
 }
 
