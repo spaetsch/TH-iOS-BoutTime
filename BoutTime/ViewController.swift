@@ -30,17 +30,16 @@ class ViewController: UIViewController {
     var shuffledQuiz = BookQuiz(events: [])
     
     let numberOfChoices = 4
+    
     let numberOfRounds = 6
-    var numberOfCorrect = 0
+    var currentRound = 0
+    var numberCorrect = 0
     let maxTime = 60
 
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
-            
             self.currentQuiz = BookQuiz(events:QuizUnarchiver.bookQuizFromArray(array))
-            print("quiz.events[0].title: \(self.currentQuiz.events[0].desc)\n")
-            
         } catch let error {
             //TODO: be more specific?
             fatalError("\(error)")
@@ -61,7 +60,6 @@ class ViewController: UIViewController {
     }
 
     //setup
-    // TODO: functions to randomly populate events for each round, no event appears twice in a round
     // TODO: functions to move events up and down
 
     
@@ -79,14 +77,19 @@ class ViewController: UIViewController {
     
     // MARK: Helper Functions
 
+    // DONE: functions to randomly populate events for each round, no event appears twice in a round
+
     func shuffleQuiz(original: BookQuiz) -> BookQuiz {
         return BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
     }
     
     func displayChoices(){
-        Q1Label.text = ("Moo")
-        Q2Label.text = "\(shuffledQuiz.events[0].desc) \nby \(shuffledQuiz.events[0].author)"
+        Q1Label.text = "\(shuffledQuiz.events[currentRound].desc) \nby \(shuffledQuiz.events[currentRound].author)"
+        Q2Label.text = "\(shuffledQuiz.events[currentRound+1].desc) \nby \(shuffledQuiz.events[currentRound+1].author)"
+        Q3Label.text = "\(shuffledQuiz.events[currentRound+2].desc) \nby \(shuffledQuiz.events[currentRound+2].author)"
+        Q4Label.text = "\(shuffledQuiz.events[currentRound+3].desc) \nby \(shuffledQuiz.events[currentRound+3].author)"
     }
+    
 
 }
 
