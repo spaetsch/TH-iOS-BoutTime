@@ -91,5 +91,25 @@ class ViewController: UIViewController {
     }
     
 
+    
+    @IBAction func arrowClick(sender: UIButton) {
+        switch sender {
+        case Q1DownButton:
+            print("q1Down pressed")
+            swapLabels(Q1Label, dest: Q2Label)
+        case Q3DownButton:
+            print("q3down pressed")
+        default:
+            print("oops")
+        }
+    }
+
+    func swapLabels(origin: UILabel, dest: UILabel){
+        let temp = origin.text
+        origin.text = dest.text
+        dest.text = temp
+    }
+    
+    
 }
 

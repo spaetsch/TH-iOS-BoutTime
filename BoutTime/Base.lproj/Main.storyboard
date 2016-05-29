@@ -42,6 +42,9 @@
                                                         <state key="normal" backgroundImage="down_full"/>
                                                         <state key="selected" backgroundImage="down_full_selected"/>
                                                         <state key="highlighted" backgroundImage="down_full_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z9N-cr-YGP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -71,6 +74,9 @@
                                                         <state key="normal" backgroundImage="down_half"/>
                                                         <state key="selected" backgroundImage="down_half_selected"/>
                                                         <state key="highlighted" backgroundImage="down_half_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aak-sT-nXo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -103,6 +109,9 @@
                                                         <state key="normal" backgroundImage="down_half"/>
                                                         <state key="selected" backgroundImage="down_half_selected"/>
                                                         <state key="highlighted" backgroundImage="down_half_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJN-us-bsg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
