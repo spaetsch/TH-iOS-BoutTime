@@ -33,8 +33,12 @@ class ViewController: UIViewController {
     
     let numberOfRounds = 6
     var currentRound = 0
+    var numberAsked = 0
     var numberCorrect = 0
-    let maxTime = 60
+    
+    let maxTime = 5 //60
+    var timerCounter: Int = 0
+    var timer = NSTimer()
 
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -60,8 +64,7 @@ class ViewController: UIViewController {
     }
 
     //setup
-    // TODO: functions to move events up and down
-
+    // TODO: Countdown timer
     
     //basic logic
     // TODO: function to check if answer is right, award points
@@ -70,7 +73,7 @@ class ViewController: UIViewController {
     
     // advanced
     // TODO: Shake device to check answer
-    // TODO: Countdown timer
+
     
     // bonus
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
@@ -84,6 +87,11 @@ class ViewController: UIViewController {
     }
     
     func displayChoices(){
+        
+        timerCounter = maxTime
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        
+        
         Q1Label.text = "\(shuffledQuiz.events[currentRound].desc) \nby \(shuffledQuiz.events[currentRound].author)"
         Q2Label.text = "\(shuffledQuiz.events[currentRound+1].desc) \nby \(shuffledQuiz.events[currentRound+1].author)"
         Q3Label.text = "\(shuffledQuiz.events[currentRound+2].desc) \nby \(shuffledQuiz.events[currentRound+2].author)"
@@ -110,6 +118,27 @@ class ViewController: UIViewController {
         dest.text = temp
     }
     
+    // Decrements the timer counter and displays to countdownLabel
+    // Changes countdown color to red when less than 5 sec remain
+    // Stops the timer if it reaches zero, increments questionsAsked, and enables nextQuestion
+    func updateCounter(){
+        timerCounter -= 1
+        TimerLabel.text = String(timerCounter)
+        
+        if timerCounter == 0 {
+            stopTimer()
+            checkAnswers()
+        }
+    }
     
+    // Stops the timer, resets timerCounter to full time
+    func stopTimer(){
+        timer.invalidate()
+        timerCounter = maxTime
+    }
+    
+    func checkAnswers(){
+        
+    }
 }
 
