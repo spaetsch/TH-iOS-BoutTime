@@ -3,58 +3,44 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>title</key>
-		<string>The Children of Men</string>
-		<key>author</key>
-		<string>P.D. James</string>
+		<key>name</key>
+		<string>The Children of Men by P.D. James</string>
 		<key>year</key>
 		<string>1992</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>The Handmaid&apos;s Tale</string>
-		<key>author</key>
-		<string>Margaret Atwood</string>
+		<key>name</key>
+		<string>The Handmaid&apos;s Tale by Margaret Atwood</string>
 		<key>year</key>
 		<string>1985</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>Kindred</string>
-		<key>author</key>
-		<string>Octavia Butler</string>
+		<key>name</key>
+		<string>Kindred by Octavia Butler</string>
 		<key>year</key>
 		<string>1979</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>A Wrinkle in Time</string>
-		<key>author</key>
-		<string>Madeleine L&apos;Engle</string>
+		<key>name</key>
+		<string>A Wrinkle in Time by Madeleine L&apos;Engle</string>
 		<key>year</key>
 		<string>1962</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>Dragonflight</string>
-		<key>author</key>
-		<string>Anne McCaffrey</string>
+		<key>name</key>
+		<string>Dragonflight by Anne McCaffrey</string>
 		<key>year</key>
 		<string>1968</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>The Speed of Dark</string>
-		<key>author</key>
-		<string>Elizabeth Moon</string>
+		<key>name</key>
+		<string>The Speed of Dark by Elizabeth Moon</string>
 		<key>year</key>
 		<string>2003</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>Ancillary Justice</string>
-		<key>author</key>
-		<string>Ann Leckie</string>
+		<key>name</key>
+		<string>Ancillary Justice by Ann Leckie</string>
 		<key>year</key>
 		<string>2013</string>
 	</dict>

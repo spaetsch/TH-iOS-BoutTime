@@ -26,9 +26,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TimerLabel: UILabel!
     
-    var loadedQuiz: BookQuiz
-    var shuffledQuiz = BookQuiz(events: [])
-    var roundQuiz = BookQuiz(events: [])
+    var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
+    var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
   
     let numberOfBooks = 4
     let numberOfRounds = 6
@@ -87,10 +86,10 @@ class ViewController: UIViewController {
         timerCounter = maxTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
-        Q1Label.text = "\(roundQuiz.events[0].desc) \nby \(roundQuiz.events[0].author)"
-        Q2Label.text = "\(roundQuiz.events[1].desc) \nby \(roundQuiz.events[1].author)"
-        Q3Label.text = "\(roundQuiz.events[2].desc) \nby \(roundQuiz.events[2].author)"
-        Q4Label.text = "\(roundQuiz.events[3].desc) \nby \(roundQuiz.events[3].author)"
+        Q1Label.text = "\(roundQuiz.events[0].desc)"
+        Q2Label.text = "\(roundQuiz.events[1].desc)"
+        Q3Label.text = "\(roundQuiz.events[2].desc)"
+        Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
     
     @IBAction func arrowClick(sender: UIButton) {
@@ -118,16 +117,14 @@ class ViewController: UIViewController {
         dest.text = temp
     }
     
-    // Decrements the timer counter and displays to countdownLabel
-    // Changes countdown color to red when less than 5 sec remain
-    // Stops the timer if it reaches zero, increments questionsAsked, and enables nextQuestion
+    // Decrements the timer counter and displays to timer label
     func updateCounter(){
         timerCounter -= 1
         TimerLabel.text = String(timerCounter)
         
         if timerCounter == 0 {
-            stopTimer()
-          // checkAnswers()
+        stopTimer()
+           //checkAnswers()
         }
     }
     
@@ -137,5 +134,16 @@ class ViewController: UIViewController {
         timerCounter = maxTime
     }
     
+    // sortBooks() - sort roundQuiz into answer key
+    // checkAnswer() - compare label title text to answers
+    //need to go back and change event to one element
+//    
+//    func sortBooks(booklist: BookQuiz) -> BookQuiz{
+//        return sortQuiz
+//    }
+//    check if
+//    func checkAnswers(){
+//        
+//    }
 }
 

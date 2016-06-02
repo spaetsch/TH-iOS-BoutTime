@@ -15,9 +15,6 @@ class BookQuiz {
         self.events = events
     }
     
-//    convenience init(){
-//        self.init(events: [Book])
-//    }
 }
 
 // Error Types
@@ -52,13 +49,10 @@ class QuizUnarchiver {
         var quiz: [Book] = []
 
         for book in array {
-            print("book: \(book)\n")
-            
-            if let desc = book["title"],
-            let author = book["author"],
+            if let desc = book["name"],
             let year = book["year"],
             let convertYr = Int(year){
-                let newBook = Book(desc: desc, author: author, year: convertYr)
+                let newBook = Book(desc: desc, year: convertYr)
                 quiz.append(newBook)
             }
         }
