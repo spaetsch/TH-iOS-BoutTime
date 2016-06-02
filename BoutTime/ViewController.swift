@@ -32,6 +32,7 @@ class ViewController: UIViewController {
   
     let numberOfBooks = 4
     let numberOfRounds = 6
+    
     var currentRound = 0
     var questionsAsked = 0
     var questionsCorrect = 0
@@ -54,8 +55,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-     
-        //shuffledQuiz = shuffle(loadedQuiz)
         roundQuiz = setQuestions(loadedQuiz)
         displayChoices()
     }
@@ -64,9 +63,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    //setup
-    // TODO: Countdown timer
     
     //basic logic
     // TODO: function to check if answer is right, award points
@@ -75,19 +71,12 @@ class ViewController: UIViewController {
     
     // advanced
     // TODO: Shake device to check answer
-
     
-    // bonus
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
     // MARK: Helper Functions
 
-    // DONE: functions to randomly populate events for each round, no event appears twice in a round
-
-    func shuffle(original: BookQuiz) -> BookQuiz {
-        return BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
-    }
-    
+    //functions to randomly populate events for each round, no event appears twice in a round
     func setQuestions(original: BookQuiz) -> BookQuiz {
         let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
         roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
@@ -95,7 +84,6 @@ class ViewController: UIViewController {
     }
     
     func displayChoices(){
-        
         timerCounter = maxTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
@@ -108,10 +96,17 @@ class ViewController: UIViewController {
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
         case Q1DownButton:
-            print("q1Down pressed")
             swapLabels(Q1Label, dest: Q2Label)
+        case Q2DownButton:
+            swapLabels(Q2Label, dest: Q3Label)
+        case Q2UpButton:
+            swapLabels(Q2Label, dest: Q1Label)
         case Q3DownButton:
-            print("q3down pressed")
+            swapLabels(Q3Label, dest: Q4Label)
+        case Q3UpButton:
+            swapLabels(Q3Label, dest: Q2Label)
+        case Q4UpButton:
+            swapLabels(Q4Label, dest: Q3Label)
         default:
             print("oops")
         }
@@ -142,9 +137,5 @@ class ViewController: UIViewController {
         timerCounter = maxTime
     }
     
-//    func checkAnswers(){
-//        numberAsked += 1
-//        
-//    }
 }
 

@@ -68,6 +68,9 @@
                                                         <state key="normal" backgroundImage="up_half"/>
                                                         <state key="selected" backgroundImage="up_half_selected"/>
                                                         <state key="highlighted" backgroundImage="up_half_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jnE-6Z-a2M"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zx-J1-cy1" userLabel="Q2DownButton">
                                                         <rect key="frame" x="0.0" y="53" width="40" height="53"/>
@@ -103,6 +106,9 @@
                                                         <state key="normal" backgroundImage="up_half"/>
                                                         <state key="selected" backgroundImage="up_half_selected"/>
                                                         <state key="highlighted" backgroundImage="up_half_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iB1-Nk-Ht9"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-cC-M2R" userLabel="Q3DownButton">
                                                         <rect key="frame" x="0.0" y="53" width="40" height="53"/>
@@ -141,6 +147,9 @@
                                                         <state key="normal" backgroundImage="up_full"/>
                                                         <state key="selected" backgroundImage="up_full_selected"/>
                                                         <state key="highlighted" backgroundImage="up_full_selected"/>
+                                                        <connections>
+                                                            <action selector="arrowClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ayD-6z-at2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
