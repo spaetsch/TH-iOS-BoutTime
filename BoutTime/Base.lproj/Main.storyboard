@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -169,11 +170,21 @@
                                 <color key="textColor" red="0.2196078431372549" green="0.5490196078431373" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFZ-nS-W2z" userLabel="NextButton">
+                                <rect key="frame" x="243" y="498" width="113" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="113:33" id="9Gz-Hp-LYV"/>
+                                    <constraint firstAttribute="width" constant="113" id="DwB-Rp-KfI"/>
+                                    <constraint firstAttribute="height" constant="33" id="NvN-gK-x5o"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16078431372549018" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="cFZ-nS-W2z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mw8-2Y-1qe"/>
                             <constraint firstAttribute="bottomMargin" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="125" id="SdD-SS-lik"/>
                             <constraint firstItem="fjx-fp-TSm" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="15" id="TJZ-Hg-PSP"/>
+                            <constraint firstItem="cFZ-nS-W2z" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="23" id="ZOk-Ys-Rqy"/>
                             <constraint firstItem="fjx-fp-TSm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bc0-Gs-zyi"/>
                             <constraint firstItem="JXe-kY-nPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="cEe-tE-Fxv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JXe-kY-nPd" secondAttribute="trailing" constant="10" id="dKX-gI-ySs"/>
@@ -194,6 +205,7 @@
                         <outlet property="Q4Label" destination="aoM-Om-0Sb" id="F3o-g5-3vY"/>
                         <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
                         <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
+                        <outlet property="nextButton" destination="cFZ-nS-W2z" id="wtJ-WY-7am"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var Q3DownButton: UIButton!
     @IBOutlet weak var Q4UpButton: UIButton!
     
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var TimerLabel: UILabel!
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 5 //60 seconds
+    let maxTime = 2 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -54,8 +55,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        roundQuiz = setQuestions(loadedQuiz)
-        displayChoices()
+        setupRound()
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +94,11 @@ class ViewController: UIViewController {
         Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
     
+    func setupRound(){
+        roundQuiz = setQuestions(loadedQuiz)
+        displayChoices()
+    }
+    
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
         case Q1DownButton:
@@ -123,16 +130,14 @@ class ViewController: UIViewController {
         TimerLabel.text = String(timerCounter)
         
         if timerCounter == 0 {
-        stopTimer()
-        checkAnswers()
+            timer.invalidate()
+            
+            evalRound(checkAnswers()) //display right or wrong button.             //increment points and rounds
+            //clicking button calls setupRound()
         }
     }
     
-    // Stops the timer, resets timerCounter to full time
-    func stopTimer(){
-        timer.invalidate()
-        timerCounter = maxTime
-    }
+
     func sortBooks(books: BookQuiz) -> [Book]{
         return books.events.sort({$0.year < $1.year})
     }
@@ -146,11 +151,36 @@ class ViewController: UIViewController {
 
         if (Q1Label.text == answerKey[0].desc && Q2Label.text == answerKey[1].desc
             && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
-            print("right!")
             return true
         }
-        print("wrong!")
         return false
+    }
+    func evalRound(result: Bool){
+        questionsAsked += 1
+        if result {
+            questionsCorrect += 1
+            toggleTimer(false)
+            nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
+            print("right!")
+        } else {
+            toggleTimer(false)
+            nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
+            print("wrong!")
+        }
+    }
+    
+    
+    func toggleTimer(show: Bool){
+        if show {
+            TimerLabel.hidden = false
+            //nextButton.enabled = false
+            nextButton.hidden = true
+        } else {
+            TimerLabel.hidden = true
+            //nextButton.enabled = true
+            nextButton.hidden = false
+        }
+        
     }
 
 }
