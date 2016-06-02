@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
-  
+    
     let numberOfBooks = 4
     let numberOfRounds = 6
     
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
         
         if timerCounter == 0 {
         stopTimer()
-           //checkAnswers()
+        checkAnswers()
         }
     }
     
@@ -133,17 +133,25 @@ class ViewController: UIViewController {
         timer.invalidate()
         timerCounter = maxTime
     }
+    func sortBooks(books: BookQuiz) -> [Book]{
+        return books.events.sort({$0.year < $1.year})
+    }
     
-    // sortBooks() - sort roundQuiz into answer key
-    // checkAnswer() - compare label title text to answers
-    //need to go back and change event to one element
-//    
-//    func sortBooks(booklist: BookQuiz) -> BookQuiz{
-//        return sortQuiz
-//    }
-//    check if
-//    func checkAnswers(){
-//        
-//    }
+    func checkAnswers() -> Bool{
+        let answerKey = sortBooks(roundQuiz)
+//        print("\(answerKey[0].desc)")
+//        print("\(answerKey[1].desc)")
+//        print("\(answerKey[2].desc)")
+//        print("\(answerKey[3].desc)")
+
+        if (Q1Label.text == answerKey[0].desc && Q2Label.text == answerKey[1].desc
+            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
+            print("right!")
+            return true
+        }
+        print("wrong!")
+        return false
+    }
+
 }
 
