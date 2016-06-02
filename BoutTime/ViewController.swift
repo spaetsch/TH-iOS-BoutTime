@@ -26,24 +26,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TimerLabel: UILabel!
     
-    var currentQuiz: BookQuiz
+    var loadedQuiz: BookQuiz
     var shuffledQuiz = BookQuiz(events: [])
-    
-    let numberOfChoices = 4
-    
+    var roundQuiz = BookQuiz(events: [])
+  
+    let numberOfBooks = 4
     let numberOfRounds = 6
     var currentRound = 0
-    var numberAsked = 0
-    var numberCorrect = 0
+    var questionsAsked = 0
+    var questionsCorrect = 0
     
-    let maxTime = 5 //60
+    let maxTime = 5 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
-            self.currentQuiz = BookQuiz(events:QuizUnarchiver.bookQuizFromArray(array))
+            self.loadedQuiz = BookQuiz(events:QuizUnarchiver.bookQuizFromArray(array))
         } catch let error {
             //TODO: be more specific?
             fatalError("\(error)")
@@ -54,7 +54,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        shuffledQuiz = shuffleQuiz(currentQuiz)
+     
+        //shuffledQuiz = shuffle(loadedQuiz)
+        roundQuiz = setQuestions(loadedQuiz)
         displayChoices()
     }
 
@@ -82,8 +84,14 @@ class ViewController: UIViewController {
 
     // DONE: functions to randomly populate events for each round, no event appears twice in a round
 
-    func shuffleQuiz(original: BookQuiz) -> BookQuiz {
+    func shuffle(original: BookQuiz) -> BookQuiz {
         return BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
+    }
+    
+    func setQuestions(original: BookQuiz) -> BookQuiz {
+        let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
+        roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
+        return roundQuiz
     }
     
     func displayChoices(){
@@ -91,14 +99,11 @@ class ViewController: UIViewController {
         timerCounter = maxTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
-        
-        Q1Label.text = "\(shuffledQuiz.events[currentRound].desc) \nby \(shuffledQuiz.events[currentRound].author)"
-        Q2Label.text = "\(shuffledQuiz.events[currentRound+1].desc) \nby \(shuffledQuiz.events[currentRound+1].author)"
-        Q3Label.text = "\(shuffledQuiz.events[currentRound+2].desc) \nby \(shuffledQuiz.events[currentRound+2].author)"
-        Q4Label.text = "\(shuffledQuiz.events[currentRound+3].desc) \nby \(shuffledQuiz.events[currentRound+3].author)"
+        Q1Label.text = "\(roundQuiz.events[0].desc) \nby \(roundQuiz.events[0].author)"
+        Q2Label.text = "\(roundQuiz.events[1].desc) \nby \(roundQuiz.events[1].author)"
+        Q3Label.text = "\(roundQuiz.events[2].desc) \nby \(roundQuiz.events[2].author)"
+        Q4Label.text = "\(roundQuiz.events[3].desc) \nby \(roundQuiz.events[3].author)"
     }
-    
-
     
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
@@ -127,7 +132,7 @@ class ViewController: UIViewController {
         
         if timerCounter == 0 {
             stopTimer()
-            checkAnswers()
+          // checkAnswers()
         }
     }
     
@@ -137,8 +142,9 @@ class ViewController: UIViewController {
         timerCounter = maxTime
     }
     
-    func checkAnswers(){
-        
-    }
+//    func checkAnswers(){
+//        numberAsked += 1
+//        
+//    }
 }
 

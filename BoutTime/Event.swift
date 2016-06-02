@@ -23,4 +23,8 @@ class Book: EventType {
         self.author = author
         self.year = year
     }
+    
+//    convenience init(){
+//        self.init(desc:"No title", author:"No author", year:1111)
+//    }
 }

@@ -14,6 +14,10 @@ class BookQuiz {
     init(events: [Book]){
         self.events = events
     }
+    
+//    convenience init(){
+//        self.init(events: [Book])
+//    }
 }
 
 // Error Types
