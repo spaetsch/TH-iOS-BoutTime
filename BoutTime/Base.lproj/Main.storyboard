@@ -177,6 +177,9 @@
                                     <constraint firstAttribute="width" constant="113" id="DwB-Rp-KfI"/>
                                     <constraint firstAttribute="height" constant="33" id="NvN-gK-x5o"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="clickNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBj-NW-0ad"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16078431372549018" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>

@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 2 //60 seconds
+    let maxTime = 5 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -55,9 +55,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        setupRound()
-        
-    
+        setQuestions(loadedQuiz)
+        displayChoices()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,8 +65,6 @@ class ViewController: UIViewController {
     }
     
     //basic logic
-    // TODO: function to check if answer is right, award points
-    // TODO: show feedback right or wrong
     // TODO: six rounds of play then show score
     
     // advanced
@@ -78,10 +75,9 @@ class ViewController: UIViewController {
     // MARK: Helper Functions
 
     //functions to randomly populate events for each round, no event appears twice in a round
-    func setQuestions(original: BookQuiz) -> BookQuiz {
+    func setQuestions(original: BookQuiz) {
         let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
         roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
-        return roundQuiz
     }
     
     func displayChoices(){
@@ -94,9 +90,11 @@ class ViewController: UIViewController {
         Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
     
-    func setupRound(){
-        roundQuiz = setQuestions(loadedQuiz)
+    @IBAction func clickNext() {
+        roundQuiz = BookQuiz(events: [])
+        setQuestions(loadedQuiz)
         displayChoices()
+        toggleTimer(true)
     }
     
     @IBAction func arrowClick(sender: UIButton) {
@@ -131,8 +129,7 @@ class ViewController: UIViewController {
         
         if timerCounter == 0 {
             timer.invalidate()
-            
-            evalRound(checkAnswers()) //display right or wrong button.             //increment points and rounds
+            evalRound(checkAnswers())
             //clicking button calls setupRound()
         }
     }
@@ -144,10 +141,6 @@ class ViewController: UIViewController {
     
     func checkAnswers() -> Bool{
         let answerKey = sortBooks(roundQuiz)
-//        print("\(answerKey[0].desc)")
-//        print("\(answerKey[1].desc)")
-//        print("\(answerKey[2].desc)")
-//        print("\(answerKey[3].desc)")
 
         if (Q1Label.text == answerKey[0].desc && Q2Label.text == answerKey[1].desc
             && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
@@ -161,11 +154,9 @@ class ViewController: UIViewController {
             questionsCorrect += 1
             toggleTimer(false)
             nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
-            print("right!")
         } else {
             toggleTimer(false)
             nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
-            print("wrong!")
         }
     }
     
@@ -173,14 +164,11 @@ class ViewController: UIViewController {
     func toggleTimer(show: Bool){
         if show {
             TimerLabel.hidden = false
-            //nextButton.enabled = false
             nextButton.hidden = true
         } else {
             TimerLabel.hidden = true
-            //nextButton.enabled = true
             nextButton.hidden = false
         }
-        
     }
 
 }
