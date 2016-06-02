@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var Q4UpButton: UIButton!
     
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var TimerLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
@@ -63,40 +63,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // TODO: six rounds of play then show score
-    // TODO: Shake device to check answer
-    // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
-    
-    // MARK: Helper Functions
-
-    //functions to randomly populate events for each round, no event appears twice in a round
-    func setQuestions(original: BookQuiz) {
-        let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
-        roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
-    }
-    
-    func displayChoices(){
-        timerCounter = maxTime
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        
-        Q1Label.text = "\(roundQuiz.events[0].desc)"
-        Q2Label.text = "\(roundQuiz.events[1].desc)"
-        Q3Label.text = "\(roundQuiz.events[2].desc)"
-        Q4Label.text = "\(roundQuiz.events[3].desc)"
-    }
-    
-    @IBAction func clickNext() {
-        if (questionsAsked < numberOfRounds){
-            roundQuiz = BookQuiz(events: [])
-            setQuestions(loadedQuiz)
-            displayChoices()
-            toggleTimer(true)
-        } else {
-            print("game over")
-            print("score: \(questionsCorrect) of \(questionsAsked)")
-        }
-    }
-    
+    // when arrow button is clicked, handles determining which labels should be swapped
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
         case Q1DownButton:
@@ -115,7 +82,46 @@ class ViewController: UIViewController {
             print("oops")
         }
     }
+    // next round button is clicked, checks if the game should continue or display final score
+    // if continuing game, resets questions and displays new set
+    @IBAction func clickNext() {
+        if (questionsAsked < numberOfRounds){
+            roundQuiz = BookQuiz(events: [])
+            setQuestions(loadedQuiz)
+            displayChoices()
+            enableChoices(true)
+        } else {
+            print("game over")
+            print("score: \(questionsCorrect) of \(questionsAsked)")
+        }
+    }
+    
+    // TODO: splash screen
+    // TODO: six rounds of play then show score
+    // TODO: Shake device to check answer
+    // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
+    
+    // MARK: Helper Functions
 
+    // shuffles the loaded quiz and stores the first four elements in roundQuiz to create question set for a given round
+    func setQuestions(original: BookQuiz) {
+        let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
+        roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
+    }
+    
+    // resets timer to max
+    // sets the label text for each choice to .desc from events array
+    func displayChoices(){
+        timerCounter = maxTime
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        
+        Q1Label.text = "\(roundQuiz.events[0].desc)"
+        Q2Label.text = "\(roundQuiz.events[1].desc)"
+        Q3Label.text = "\(roundQuiz.events[2].desc)"
+        Q4Label.text = "\(roundQuiz.events[3].desc)"
+    }
+    
+    // given a origin and destination label, swaps their text fields
     func swapLabels(origin: UILabel, dest: UILabel){
         let temp = origin.text
         origin.text = dest.text
@@ -123,22 +129,23 @@ class ViewController: UIViewController {
     }
     
     // Decrements the timer counter and displays to timer label
+    // When timer reaches zero, invalidates timer and evaluates round
     func updateCounter(){
         timerCounter -= 1
-        TimerLabel.text = String(timerCounter)
+        timerLabel.text = String(timerCounter)
         
         if timerCounter == 0 {
             timer.invalidate()
             evalRound(checkAnswers())
-            //clicking button calls setupRound()
         }
     }
     
-
+    // sorts an array of Books in ascending order by .year
     func sortBooks(books: BookQuiz) -> [Book]{
         return books.events.sort({$0.year < $1.year})
     }
     
+    // checks order of user choices against correct ascending order
     func checkAnswers() -> Bool{
         let answerKey = sortBooks(roundQuiz)
 
@@ -148,25 +155,41 @@ class ViewController: UIViewController {
         }
         return false
     }
+    
+    // evaluates round:
+    // increments number of questionsAsked and enableChoices off to show nextButton
+    // if answers are correct, set button image to success and increment questionsCorrect
+    // else set button image to fail
     func evalRound(result: Bool){
         questionsAsked += 1
+        enableChoices(false)
         if result {
             questionsCorrect += 1
-            toggleTimer(false)
             nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
         } else {
-            toggleTimer(false)
             nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
         }
     }
     
-    
-    func toggleTimer(show: Bool){
+    // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
+    func enableChoices(show: Bool){
         if show {
-            TimerLabel.hidden = false
+            timerLabel.hidden = false
+            Q1DownButton.enabled = true
+            Q2DownButton.enabled = true
+            Q2UpButton.enabled = true
+            Q3DownButton.enabled = true
+            Q3UpButton.enabled = true
+            Q4UpButton.enabled = true
             nextButton.hidden = true
         } else {
-            TimerLabel.hidden = true
+            timerLabel.hidden = true
+            Q1DownButton.enabled = false
+            Q2DownButton.enabled = false
+            Q2UpButton.enabled = false
+            Q3DownButton.enabled = false
+            Q3UpButton.enabled = false
+            Q4UpButton.enabled = false
             nextButton.hidden = false
         }
     }
