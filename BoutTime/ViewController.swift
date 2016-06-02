@@ -31,13 +31,12 @@ class ViewController: UIViewController {
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
     
     let numberOfBooks = 4
-    let numberOfRounds = 6
+    let numberOfRounds = 3 // 6
     
-    var currentRound = 0
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 5 //60 seconds
+    let maxTime = 2 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -64,12 +63,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //basic logic
     // TODO: six rounds of play then show score
-    
-    // advanced
     // TODO: Shake device to check answer
-    
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
     // MARK: Helper Functions
@@ -91,10 +86,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickNext() {
-        roundQuiz = BookQuiz(events: [])
-        setQuestions(loadedQuiz)
-        displayChoices()
-        toggleTimer(true)
+        if (questionsAsked < numberOfRounds){
+            roundQuiz = BookQuiz(events: [])
+            setQuestions(loadedQuiz)
+            displayChoices()
+            toggleTimer(true)
+        } else {
+            print("game over")
+            print("score: \(questionsCorrect) of \(questionsAsked)")
+        }
     }
     
     @IBAction func arrowClick(sender: UIButton) {
