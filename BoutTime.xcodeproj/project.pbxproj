@@ -15,6 +15,7 @@
 		5C9885781CF7C16600909B13 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885771CF7C16600909B13 /* Event.swift */; };
 		5C98857A1CF7C47300909B13 /* BookQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885791CF7C47300909B13 /* BookQuiz.swift */; };
 		5C98857C1CF7C7EB00909B13 /* BookQuiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */; };
+		5CFDDF731D026853000E5527 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFDDF721D026853000E5527 /* splash_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5C9885771CF7C16600909B13 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5C9885791CF7C47300909B13 /* BookQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookQuiz.swift; sourceTree = "<group>"; };
 		5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BookQuiz.plist; sourceTree = "<group>"; };
+		5CFDDF721D026853000E5527 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = images/splash_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		5C9885641CF779EF00909B13 /* BoutTime */ = {
 			isa = PBXGroup;
 			children = (
+				5CFDDF721D026853000E5527 /* splash_screen.png */,
 				5C9885651CF779EF00909B13 /* AppDelegate.swift */,
 				5C9885671CF779EF00909B13 /* ViewController.swift */,
 				5C9885691CF779EF00909B13 /* Main.storyboard */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C98857C1CF7C7EB00909B13 /* BookQuiz.plist in Resources */,
+				5CFDDF731D026853000E5527 /* splash_screen.png in Resources */,
 				5C9885701CF779EF00909B13 /* LaunchScreen.storyboard in Resources */,
 				5C98856D1CF779EF00909B13 /* Assets.xcassets in Resources */,
 				5C98856B1CF779EF00909B13 /* Main.storyboard in Resources */,

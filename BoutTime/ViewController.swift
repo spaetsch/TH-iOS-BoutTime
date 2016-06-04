@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 2 //60 seconds
+    let maxTime = 15 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
