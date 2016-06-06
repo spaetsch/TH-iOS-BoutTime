@@ -158,6 +158,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjx-fp-TSm" userLabel="Timer">
+                                <rect key="frame" x="274" y="490" width="51" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr">
                                 <rect key="frame" x="243" y="549" width="115" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -175,12 +181,20 @@
                                     <action selector="clickNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBj-NW-0ad"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjx-fp-TSm" userLabel="Timer">
-                                <rect key="frame" x="274" y="490" width="51" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-lU-MGd" userLabel="showScoreButton">
+                                <rect key="frame" x="260" y="500" width="80" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="dr4-Gk-47i"/>
+                                    <constraint firstAttribute="height" constant="30" id="gtv-RR-wGA"/>
+                                </constraints>
+                                <state key="normal" title="Show score">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YPe-uM-y8l" kind="presentation" identifier="showScore" id="t1W-YX-8V5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16078431372549018" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -192,8 +206,10 @@
                             <constraint firstItem="JXe-kY-nPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="cEe-tE-Fxv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JXe-kY-nPd" secondAttribute="trailing" constant="10" id="dKX-gI-ySs"/>
                             <constraint firstItem="Uv4-te-oGr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hdu-Tf-P5B"/>
+                            <constraint firstItem="Ogz-lU-MGd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lI1-fH-DOq"/>
                             <constraint firstItem="JXe-kY-nPd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="qYl-Dc-WdL"/>
                             <constraint firstItem="Uv4-te-oGr" firstAttribute="top" secondItem="fjx-fp-TSm" secondAttribute="bottom" constant="10" id="yIl-P9-COC"/>
+                            <constraint firstItem="Ogz-lU-MGd" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="25" id="zp8-UP-t4Y"/>
                         </constraints>
                     </view>
                     <connections>
@@ -209,16 +225,17 @@
                         <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
                         <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
                         <outlet property="nextButton" destination="cFZ-nS-W2z" id="wtJ-WY-7am"/>
+                        <outlet property="showScoreButton" destination="Ogz-lU-MGd" id="0lb-uT-MAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="440" y="257"/>
         </scene>
-        <!--View Controller-->
+        <!--Score View Controller-->
         <scene sceneID="z6o-J3-230">
             <objects>
-                <viewController id="YPe-uM-y8l" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scoreView" id="YPe-uM-y8l" customClass="ScoreViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mgr-Gx-M9d"/>
                         <viewControllerLayoutGuide type="bottom" id="aaR-92-RB3"/>
@@ -261,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJh-cQ-Qgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="257"/>
+            <point key="canvasLocation" x="1120" y="257"/>
         </scene>
     </scenes>
     <resources>

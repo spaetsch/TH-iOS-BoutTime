@@ -27,16 +27,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var showScoreButton: UIButton!
+    
+    
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
     
     let numberOfBooks = 4
-    let numberOfRounds = 3 // 6
+    let numberOfRounds = 2 // 6
     
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 15 //60 seconds
+    let maxTime = 2 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -93,10 +96,14 @@ class ViewController: UIViewController {
         } else {
             print("game over")
             print("score: \(questionsCorrect) of \(questionsAsked)")
+            nextButton.hidden = true
+            timerLabel.hidden = true
+            showScoreButton.hidden = false
+
+            // update score labels accordingly
         }
     }
     
-    // TODO: splash screen
     // TODO: six rounds of play then show score
     // TODO: Shake device to check answer
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
@@ -194,5 +201,8 @@ class ViewController: UIViewController {
         }
     }
 
+    func segueToScore(){
+        
+    }
 }
 
