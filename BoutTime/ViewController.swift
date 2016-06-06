@@ -66,6 +66,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showScoreSegue" {
+            if let destination = segue.destinationViewController as? ScoreViewController {
+                destination.questionsAsked = self.questionsAsked
+                destination.questionsCorrect = self.questionsCorrect
+            }
+        }
+    }
+    
     // when arrow button is clicked, handles determining which labels should be swapped
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
@@ -100,7 +109,9 @@ class ViewController: UIViewController {
             timerLabel.hidden = true
             showScoreButton.hidden = false
 
-            // update score labels accordingly
+            // update score labels accordingly?
+            
+       
         }
     }
     
