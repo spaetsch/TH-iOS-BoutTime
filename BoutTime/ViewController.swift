@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var showScoreButton: UIButton!
     
-    
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
     
@@ -39,7 +38,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 2 //60 seconds
+    let maxTime = 5 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -57,10 +56,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("viewDidLoad")
+        setTimer()
         setQuestions(loadedQuiz)
         displayChoices()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        print("viewwillappear")
+        
+        questionsAsked = 0
+        questionsCorrect = 0
+        
+        showScoreButton.hidden = true
+        enableChoices(true)
+        
+        // where does set timer go?
+        setQuestions(loadedQuiz)
+        displayChoices()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,8 +112,9 @@ class ViewController: UIViewController {
     // next round button is clicked, checks if the game should continue or display final score
     // if continuing game, resets questions and displays new set
     @IBAction func clickNext() {
+        setTimer()
         if (questionsAsked < numberOfRounds){
-            roundQuiz = BookQuiz(events: [])
+            roundQuiz = BookQuiz(events: []) // blank quiz
             setQuestions(loadedQuiz)
             displayChoices()
             enableChoices(true)
@@ -108,14 +124,9 @@ class ViewController: UIViewController {
             nextButton.hidden = true
             timerLabel.hidden = true
             showScoreButton.hidden = false
-
-            // update score labels accordingly?
-            
-       
         }
     }
     
-    // TODO: six rounds of play then show score
     // TODO: Shake device to check answer
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
@@ -130,9 +141,6 @@ class ViewController: UIViewController {
     // resets timer to max
     // sets the label text for each choice to .desc from events array
     func displayChoices(){
-        timerCounter = maxTime
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        
         Q1Label.text = "\(roundQuiz.events[0].desc)"
         Q2Label.text = "\(roundQuiz.events[1].desc)"
         Q3Label.text = "\(roundQuiz.events[2].desc)"
@@ -146,6 +154,12 @@ class ViewController: UIViewController {
         dest.text = temp
     }
     
+    func setTimer(){
+        timerCounter = maxTime
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timerLabel.text = String(timerCounter)
+    }
+    
     // Decrements the timer counter and displays to timer label
     // When timer reaches zero, invalidates timer and evaluates round
     func updateCounter(){
@@ -155,6 +169,9 @@ class ViewController: UIViewController {
         if timerCounter == 0 {
             timer.invalidate()
             evalRound(checkAnswers())
+            
+            //should be somewhere else
+            //evalRound(checkAnswers())
         }
     }
     
@@ -181,6 +198,7 @@ class ViewController: UIViewController {
     func evalRound(result: Bool){
         questionsAsked += 1
         enableChoices(false)
+        
         if result {
             questionsCorrect += 1
             nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
@@ -212,8 +230,6 @@ class ViewController: UIViewController {
         }
     }
 
-    func segueToScore(){
-        
-    }
+  
 }
 
