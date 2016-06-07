@@ -56,14 +56,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("viewDidLoad")
-        setTimer()
-        setQuestions(loadedQuiz)
-        displayChoices()
+        print("main viewDidLoad")
+        //setQuestions(loadedQuiz)
+        //displayRound()
     }
 
     override func viewWillAppear(animated: Bool) {
-        print("viewwillappear")
+        print("main viewwillappear")
         
         questionsAsked = 0
         questionsCorrect = 0
@@ -71,9 +70,8 @@ class ViewController: UIViewController {
         showScoreButton.hidden = true
         enableChoices(true)
         
-        // where does set timer go?
         setQuestions(loadedQuiz)
-        displayChoices()
+        displayRound()
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,11 +110,11 @@ class ViewController: UIViewController {
     // next round button is clicked, checks if the game should continue or display final score
     // if continuing game, resets questions and displays new set
     @IBAction func clickNext() {
-        setTimer()
+        //createTimer()
         if (questionsAsked < numberOfRounds){
             roundQuiz = BookQuiz(events: []) // blank quiz
             setQuestions(loadedQuiz)
-            displayChoices()
+            displayRound()
             enableChoices(true)
         } else {
             print("game over")
@@ -140,7 +138,10 @@ class ViewController: UIViewController {
     
     // resets timer to max
     // sets the label text for each choice to .desc from events array
-    func displayChoices(){
+    func displayRound(){
+        
+        createTimer()
+        
         Q1Label.text = "\(roundQuiz.events[0].desc)"
         Q2Label.text = "\(roundQuiz.events[1].desc)"
         Q3Label.text = "\(roundQuiz.events[2].desc)"
@@ -154,24 +155,22 @@ class ViewController: UIViewController {
         dest.text = temp
     }
     
-    func setTimer(){
+    func createTimer(){
         timerCounter = maxTime
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(manageCounter), userInfo: nil, repeats: true)
         timerLabel.text = String(timerCounter)
     }
-    
+
     // Decrements the timer counter and displays to timer label
     // When timer reaches zero, invalidates timer and evaluates round
-    func updateCounter(){
+    func manageCounter(){
         timerCounter -= 1
         timerLabel.text = String(timerCounter)
         
         if timerCounter == 0 {
+            print("timer is 0, call timer.invalidate")
             timer.invalidate()
             evalRound(checkAnswers())
-            
-            //should be somewhere else
-            //evalRound(checkAnswers())
         }
     }
     

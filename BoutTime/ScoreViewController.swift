@@ -31,7 +31,7 @@ class ScoreViewController: UIViewController {
     
     @IBAction func playAgain(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        print("need to reset game here")
+        print("play again")
     }
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "playAgainSegue" {
