@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var questionsCorrect = 0
     
-    let maxTime = 3 //60 seconds
+    let maxTime = 15 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
 
@@ -82,6 +82,17 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            timerCounter = 0  // run the timer out, triggers reset and evaluation of answer
+        }
+    }
+    
     
     // when arrow button is clicked, handles determining which labels should be swapped
     @IBAction func arrowClick(sender: UIButton) {
@@ -155,7 +166,7 @@ class ViewController: UIViewController {
         timerCounter -= 1
         timerLabel.text = String(timerCounter)
         
-        if timerCounter == 0 {
+        if timerCounter < 1 {
             enableChoices(false)
             checkAnswers()
             timer.invalidate()
