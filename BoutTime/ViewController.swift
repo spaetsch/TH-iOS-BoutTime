@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var shakeTapLabel: UILabel!
+    
     @IBOutlet weak var showScoreButton: UIButton!
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
@@ -207,6 +209,8 @@ class ViewController: UIViewController {
             Q3UpButton.enabled = true
             Q4UpButton.enabled = true
             nextButton.hidden = true
+            shakeTapLabel.text = "Shake to complete"
+            
         } else {
             timerLabel.hidden = true
             Q1DownButton.enabled = false
@@ -216,6 +220,7 @@ class ViewController: UIViewController {
             Q3UpButton.enabled = false
             Q4UpButton.enabled = false
             nextButton.hidden = false
+            shakeTapLabel.text = "Tap events for more info"
         }
     }
 }

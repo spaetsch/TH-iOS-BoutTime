@@ -164,7 +164,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr" userLabel="UnderNextLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr" userLabel="shakeTapLabel">
                                 <rect key="frame" x="243" y="564" width="115" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.2196078431372549" green="0.5490196078431373" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,6 +222,7 @@
                         <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
                         <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
                         <outlet property="nextButton" destination="cFZ-nS-W2z" id="wtJ-WY-7am"/>
+                        <outlet property="shakeTapLabel" destination="Uv4-te-oGr" id="fKn-og-xTR"/>
                         <outlet property="showScoreButton" destination="Ogz-lU-MGd" id="0lb-uT-MAb"/>
                     </connections>
                 </viewController>
