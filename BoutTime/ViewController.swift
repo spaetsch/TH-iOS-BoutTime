@@ -190,11 +190,9 @@ class ViewController: UIViewController {
         nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
 
         if questionsAsked == numberOfRounds {
-            print("qA = numRds")
             nextButton.hidden = true
             timerLabel.hidden = true
-            showScoreButton.hidden = false
-            
+            showScoreButton.hidden = false            
         }
     }
     

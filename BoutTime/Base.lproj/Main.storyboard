@@ -164,28 +164,27 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr" userLabel="UnderNextLabel">
                                 <rect key="frame" x="243" y="564" width="115" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.2196078431372549" green="0.5490196078431373" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFZ-nS-W2z" userLabel="NextButton">
-                                <rect key="frame" x="240" y="500" width="120" height="40"/>
+                                <rect key="frame" x="220" y="500" width="160" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="3:1" id="lFE-2I-cbD"/>
+                                    <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="4:1" id="lFE-2I-cbD"/>
                                 </constraints>
                                 <connections>
                                     <action selector="clickNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBj-NW-0ad"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-lU-MGd" userLabel="showScoreButton">
-                                <rect key="frame" x="255" y="500" width="90" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-lU-MGd" userLabel="showScoreButton">
+                                <rect key="frame" x="16" y="500" width="568" height="142"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ogz-lU-MGd" secondAttribute="height" multiplier="3:1" id="onE-mR-oj5"/>
+                                    <constraint firstAttribute="width" secondItem="Ogz-lU-MGd" secondAttribute="height" multiplier="4:1" id="onE-mR-oj5" userLabel="aspect = 3:1"/>
                                 </constraints>
-                                <state key="normal" title="Show score">
+                                <state key="normal" image="show_score">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -290,6 +289,7 @@
         <image name="down_half" width="158" height="229"/>
         <image name="down_half_selected" width="158" height="229"/>
         <image name="play_again" width="450" height="142"/>
+        <image name="show_score" width="450" height="142"/>
         <image name="up_full" width="158" height="457"/>
         <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
