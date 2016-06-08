@@ -114,9 +114,7 @@ class ViewController: UIViewController {
         }
     }
     
-
     
-    // TODO: Shake device to check answer
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
     // MARK: Helper Functions
