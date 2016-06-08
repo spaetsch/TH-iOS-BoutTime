@@ -165,28 +165,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-te-oGr">
-                                <rect key="frame" x="243" y="549" width="115" height="16"/>
+                                <rect key="frame" x="243" y="564" width="115" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.2196078431372549" green="0.5490196078431373" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFZ-nS-W2z" userLabel="NextButton">
-                                <rect key="frame" x="243" y="498" width="113" height="33"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFZ-nS-W2z" userLabel="NextButton">
+                                <rect key="frame" x="240" y="500" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="113:33" id="9Gz-Hp-LYV"/>
-                                    <constraint firstAttribute="width" constant="113" id="DwB-Rp-KfI"/>
-                                    <constraint firstAttribute="height" constant="33" id="NvN-gK-x5o"/>
+                                    <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="3:1" id="lFE-2I-cbD"/>
                                 </constraints>
                                 <connections>
                                     <action selector="clickNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBj-NW-0ad"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-lU-MGd" userLabel="showScoreButton">
-                                <rect key="frame" x="260" y="500" width="80" height="30"/>
+                                <rect key="frame" x="255" y="500" width="90" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="dr4-Gk-47i"/>
-                                    <constraint firstAttribute="height" constant="30" id="gtv-RR-wGA"/>
+                                    <constraint firstAttribute="width" secondItem="Ogz-lU-MGd" secondAttribute="height" multiplier="3:1" id="onE-mR-oj5"/>
                                 </constraints>
                                 <state key="normal" title="Show score">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -201,14 +198,15 @@
                             <constraint firstItem="cFZ-nS-W2z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mw8-2Y-1qe"/>
                             <constraint firstAttribute="bottomMargin" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="125" id="SdD-SS-lik"/>
                             <constraint firstItem="fjx-fp-TSm" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="15" id="TJZ-Hg-PSP"/>
-                            <constraint firstItem="cFZ-nS-W2z" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="23" id="ZOk-Ys-Rqy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cFZ-nS-W2z" secondAttribute="bottom" constant="60" id="Vmh-GT-geT"/>
+                            <constraint firstItem="cFZ-nS-W2z" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="25" id="ZOk-Ys-Rqy"/>
                             <constraint firstItem="fjx-fp-TSm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bc0-Gs-zyi"/>
-                            <constraint firstItem="JXe-kY-nPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="cEe-tE-Fxv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JXe-kY-nPd" secondAttribute="trailing" constant="10" id="dKX-gI-ySs"/>
+                            <constraint firstItem="JXe-kY-nPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gMz-Vx-PLQ"/>
                             <constraint firstItem="Uv4-te-oGr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hdu-Tf-P5B"/>
                             <constraint firstItem="Ogz-lU-MGd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lI1-fH-DOq"/>
                             <constraint firstItem="JXe-kY-nPd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="qYl-Dc-WdL"/>
-                            <constraint firstItem="Uv4-te-oGr" firstAttribute="top" secondItem="fjx-fp-TSm" secondAttribute="bottom" constant="10" id="yIl-P9-COC"/>
+                            <constraint firstItem="Uv4-te-oGr" firstAttribute="top" secondItem="fjx-fp-TSm" secondAttribute="bottom" constant="25" id="qlk-XM-bdR"/>
                             <constraint firstItem="Ogz-lU-MGd" firstAttribute="top" secondItem="JXe-kY-nPd" secondAttribute="bottom" constant="25" id="zp8-UP-t4Y"/>
                         </constraints>
                     </view>
@@ -256,13 +254,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmE-VQ-c14" userLabel="playAgainButton">
-                                <rect key="frame" x="244" y="344" width="113" height="33"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmE-VQ-c14" userLabel="playAgainButton">
+                                <rect key="frame" x="232.5" y="344" width="135" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="RrG-3R-xbg"/>
-                                    <constraint firstAttribute="height" constant="33" id="Xy6-sM-ObN"/>
+                                    <constraint firstAttribute="width" secondItem="WmE-VQ-c14" secondAttribute="height" multiplier="3:1" id="z7v-19-f2s"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="play_again"/>
+                                <state key="normal" image="play_again"/>
                                 <connections>
                                     <action selector="playAgain:" destination="YPe-uM-y8l" eventType="touchUpInside" id="q3G-zB-Z6s"/>
                                 </connections>
