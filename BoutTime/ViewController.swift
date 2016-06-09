@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     var timerCounter: Int = 0
     var timer = NSTimer()
     
-    //var webViewURL = "https://en.wikipedia.org/wiki/HTTP_451"
+    let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -67,7 +67,6 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        
         questionsAsked = 0
         questionsCorrect = 0
         enableChoices(true)
@@ -92,13 +91,7 @@ class ViewController: UIViewController {
         
         if segue.identifier == "showWebViewSegue" {
             if let destination = segue.destinationViewController as? WebViewController {
-                //need to send appropriate URL
-                
-                print("in prep for segue, if showWeb")
-                print("destination.webViewURL\(destination.webViewURL)")
-                //print("self.webViewURL\(self.webViewURL)")
-
-                destination.webViewURL = setURL(sender!)
+                destination.webViewURL = setURL(sender as! UIButton)
             }
         }
         
@@ -135,31 +128,16 @@ class ViewController: UIViewController {
         }
     }
     
-//    @IBAction func setURL(sender: UIButton) {
-//        // if q1 is clicked, set URL var to associated URL
-//        let clickedTitle = sender.titleLabel?.text
-//        
-//        for item in roundQuiz.events {
-//            if item.desc == clickedTitle {
-//                webViewURL = item.URL
-//                print("inside setURL if, webViewURL= \(webViewURL)")
-//            }
-//        }
-//       
-//    }
-    func setURL(sender: AnyObject) -> String {
-        let clickedTitle = sender.titleLabel!!.text
-                for item in roundQuiz.events {
-                    if item.desc == clickedTitle {
-                        return item.URL
-                    }
+    func setURL(senderButton: UIButton) -> String {
+        if let label = senderButton.titleLabel {
+            for item in roundQuiz.events {
+                if item.desc == label.text {
+                    return item.URL
                 }
-   
-        return "oops"
-
+            }
+        }
+        return URL404
     }
-    
-    // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
     // MARK: Helper Functions
 
