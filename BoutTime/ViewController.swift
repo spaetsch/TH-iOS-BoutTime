@@ -47,6 +47,8 @@ class ViewController: UIViewController {
     let maxTime = 15 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
+    
+    //var webViewURL = "https://en.wikipedia.org/wiki/HTTP_451"
 
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -90,10 +92,13 @@ class ViewController: UIViewController {
         
         if segue.identifier == "showWebViewSegue" {
             if let destination = segue.destinationViewController as? WebViewController {
-                print("in prepare, in fi showWeb")
                 //need to send appropriate URL
-                destination.URL = "www.google.com"
-                print("have set url")
+                
+                print("in prep for segue, if showWeb")
+                print("destination.webViewURL\(destination.webViewURL)")
+                //print("self.webViewURL\(self.webViewURL)")
+
+                destination.webViewURL = setURL(sender!)
             }
         }
         
@@ -130,6 +135,29 @@ class ViewController: UIViewController {
         }
     }
     
+//    @IBAction func setURL(sender: UIButton) {
+//        // if q1 is clicked, set URL var to associated URL
+//        let clickedTitle = sender.titleLabel?.text
+//        
+//        for item in roundQuiz.events {
+//            if item.desc == clickedTitle {
+//                webViewURL = item.URL
+//                print("inside setURL if, webViewURL= \(webViewURL)")
+//            }
+//        }
+//       
+//    }
+    func setURL(sender: AnyObject) -> String {
+        let clickedTitle = sender.titleLabel!!.text
+                for item in roundQuiz.events {
+                    if item.desc == clickedTitle {
+                        return item.URL
+                    }
+                }
+   
+        return "oops"
+
+    }
     
     // TODO: EXTRA CREDIT: at end of round, can click event and get webview with more info
     
@@ -226,24 +254,34 @@ class ViewController: UIViewController {
     // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
     func enableChoices(show: Bool){
         if show {
-            timerLabel.hidden = false
+            
             Q1DownButton.enabled = true
             Q2DownButton.enabled = true
             Q2UpButton.enabled = true
             Q3DownButton.enabled = true
             Q3UpButton.enabled = true
             Q4UpButton.enabled = true
+            
+            q1BookButton.enabled = false
+            q2BookButton.enabled = false
+            
+            timerLabel.hidden = false
             nextButton.hidden = true
             shakeTapLabel.text = "Shake to complete"
             
         } else {
-            timerLabel.hidden = true
+            
             Q1DownButton.enabled = false
             Q2DownButton.enabled = false
             Q2UpButton.enabled = false
             Q3DownButton.enabled = false
             Q3UpButton.enabled = false
             Q4UpButton.enabled = false
+            
+            q1BookButton.enabled = true
+            q2BookButton.enabled = true
+            
+            timerLabel.hidden = true
             nextButton.hidden = false
             shakeTapLabel.text = "Tap events for more info"
         }

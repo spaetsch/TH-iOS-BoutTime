@@ -33,6 +33,7 @@
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="setURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXN-ec-Dlj"/>
                                                     <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="DrB-BZ-qgF"/>
                                                 </connections>
                                             </button>
