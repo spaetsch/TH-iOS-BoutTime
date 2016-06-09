@@ -15,12 +15,12 @@ protocol EventType {
 
 class Book: EventType {
     var desc: String
-    //var author: String
     var year: Int
+    var URL: String
     
-    init(desc: String, year: Int){
+    init(desc: String, year: Int, URL: String){
         self.desc = desc
-        //self.author = author
         self.year = year
+        self.URL = URL
     }
 }

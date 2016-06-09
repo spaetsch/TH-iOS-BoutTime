@@ -7,42 +7,56 @@
 		<string>The Children of Men by P.D. James</string>
 		<key>year</key>
 		<string>1992</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Children_of_Men</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>The Handmaid&apos;s Tale by Margaret Atwood</string>
 		<key>year</key>
 		<string>1985</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Kindred by Octavia Butler</string>
 		<key>year</key>
 		<string>1979</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Kindred_(novel)</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>A Wrinkle in Time by Madeleine L&apos;Engle</string>
 		<key>year</key>
 		<string>1962</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/A_Wrinkle_in_Time</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Dragonflight by Anne McCaffrey</string>
 		<key>year</key>
 		<string>1968</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Dragonflight</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>The Speed of Dark by Elizabeth Moon</string>
 		<key>year</key>
 		<string>2003</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Speed_of_Dark</string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Ancillary Justice by Ann Leckie</string>
 		<key>year</key>
 		<string>2013</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Ancillary_Justice</string>
 	</dict>
 </array>
 </plist>

@@ -12,8 +12,12 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var Q1Label: UILabel!
-    @IBOutlet weak var Q2Label: UILabel!
+   // @IBOutlet weak var Q1Label: UILabel!
+    
+    @IBOutlet weak var q1BookButton: UIButton!
+    @IBOutlet weak var q2BookButton: UIButton!
+    
+   // @IBOutlet weak var Q2Label: UILabel!
     @IBOutlet weak var Q3Label: UILabel!
     @IBOutlet weak var Q4Label: UILabel!
     
@@ -100,17 +104,17 @@ class ViewController: UIViewController {
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
         case Q1DownButton:
-            swapLabels(Q1Label, dest: Q2Label)
-        case Q2DownButton:
-            swapLabels(Q2Label, dest: Q3Label)
+            swapButtonTitles(q1BookButton, dest: q2BookButton)
+        /*case Q2DownButton:
+            swapLabels(Q2Label, dest: Q3Label)*/
         case Q2UpButton:
-            swapLabels(Q2Label, dest: Q1Label)
-        case Q3DownButton:
+            swapButtonTitles(q2BookButton, dest: q1BookButton)
+        /* case Q3DownButton:
             swapLabels(Q3Label, dest: Q4Label)
         case Q3UpButton:
             swapLabels(Q3Label, dest: Q2Label)
         case Q4UpButton:
-            swapLabels(Q4Label, dest: Q3Label)
+            swapLabels(Q4Label, dest: Q3Label)*/
         default:
             print("oops")
         }
@@ -131,8 +135,11 @@ class ViewController: UIViewController {
     func displayRound(){
         createTimer()
         
-        Q1Label.text = "\(roundQuiz.events[0].desc)"
-        Q2Label.text = "\(roundQuiz.events[1].desc)"
+        //Q1Label.text = "\(roundQuiz.events[0].desc)"
+        q1BookButton.setTitle(roundQuiz.events[0].desc, forState: .Normal)
+        q2BookButton.setTitle(roundQuiz.events[1].desc, forState: .Normal)
+
+        //Q2Label.text = "\(roundQuiz.events[1].desc)"
         Q3Label.text = "\(roundQuiz.events[2].desc)"
         Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
@@ -142,6 +149,14 @@ class ViewController: UIViewController {
         let temp = origin.text
         origin.text = dest.text
         dest.text = temp
+    }
+    
+    func swapButtonTitles(origin: UIButton, dest: UIButton){
+        let first = origin.titleLabel?.text
+        let second = dest.titleLabel?.text
+        origin.setTitle(second, forState: .Normal)
+        dest.setTitle(first, forState: .Normal)
+
     }
     
     // resets timer to max
@@ -184,7 +199,7 @@ class ViewController: UIViewController {
         
         let answerKey = sortBooks(roundQuiz)
 
-        if (Q1Label.text == answerKey[0].desc && Q2Label.text == answerKey[1].desc
+        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
             && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
             questionsCorrect += 1
             nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)

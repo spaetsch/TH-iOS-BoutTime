@@ -25,13 +25,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Umu-8N-GcG" userLabel="Event Stack 1">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="106"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Title the Title by Author Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEk-oZ-eJf" userLabel="Q1Label" customClass="PaddedLabel" customModule="BoutTime" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-73-XvK" userLabel="q1BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" red="0.062745098039215685" green="0.36470588235294116" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Title Title the Title by Author Author"/>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-cv-xo7" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
@@ -54,13 +51,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-U5-fRx" userLabel="Event Stack 2">
                                         <rect key="frame" x="0.0" y="113" width="540" height="106"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Title the Title by Author Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIG-59-3io" userLabel="Q2Label" customClass="PaddedLabel" customModule="BoutTime" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <state key="normal" title="Title Title the Title by Author Author"/>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-mo-aUZ" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
@@ -211,9 +205,7 @@
                     </view>
                     <connections>
                         <outlet property="Q1DownButton" destination="FMU-Lz-PyA" id="y5k-sQ-YP7"/>
-                        <outlet property="Q1Label" destination="aEk-oZ-eJf" id="fbL-KG-xWJ"/>
                         <outlet property="Q2DownButton" destination="6Zx-J1-cy1" id="76e-KD-zMI"/>
-                        <outlet property="Q2Label" destination="oIG-59-3io" id="U43-IQ-Rds"/>
                         <outlet property="Q2UpButton" destination="Aij-8e-mDZ" id="gRK-Xr-lo3"/>
                         <outlet property="Q3DownButton" destination="e8e-cC-M2R" id="dYU-al-Mpc"/>
                         <outlet property="Q3Label" destination="RRa-sC-xSL" id="UTL-Cj-oYF"/>
@@ -222,6 +214,8 @@
                         <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
                         <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
                         <outlet property="nextButton" destination="cFZ-nS-W2z" id="wtJ-WY-7am"/>
+                        <outlet property="q1BookButton" destination="jAO-73-XvK" id="iaO-rB-aqD"/>
+                        <outlet property="q2BookButton" destination="Mld-Tg-Sc7" id="Tjc-aO-Dp5"/>
                         <outlet property="shakeTapLabel" destination="Uv4-te-oGr" id="fKn-og-xTR"/>
                         <outlet property="showScoreButton" destination="Ogz-lU-MGd" id="0lb-uT-MAb"/>
                     </connections>
@@ -229,6 +223,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="440" y="257"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="XhV-oj-eMz">
+            <objects>
+                <viewController id="AN8-3B-Lr2" userLabel="Web View Controller" customClass="WebViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CLE-tr-w6A"/>
+                        <viewControllerLayoutGuide type="bottom" id="JJb-Rz-dHF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y6C-Ma-pVi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBR-GP-DeX">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JJb-Rz-dHF" firstAttribute="top" secondItem="KBR-GP-DeX" secondAttribute="bottom" id="Mkr-Qy-Ifp"/>
+                            <constraint firstItem="KBR-GP-DeX" firstAttribute="top" secondItem="Y6C-Ma-pVi" secondAttribute="topMargin" id="pgQ-Xq-IU7"/>
+                            <constraint firstItem="KBR-GP-DeX" firstAttribute="leading" secondItem="Y6C-Ma-pVi" secondAttribute="leadingMargin" id="q7S-ub-Ic8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KBR-GP-DeX" secondAttribute="trailing" id="vmF-Hy-MG8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="KBR-GP-DeX" id="HIz-uW-MUg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ioV-3z-Inr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="584"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="z6o-J3-230">
@@ -281,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJh-cQ-Qgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="257"/>
+            <point key="canvasLocation" x="1222" y="-87"/>
         </scene>
     </scenes>
     <resources>

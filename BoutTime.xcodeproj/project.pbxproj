@@ -18,6 +18,7 @@
 		5CFDDF731D026853000E5527 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFDDF721D026853000E5527 /* splash_screen.png */; };
 		5CFDDF751D061187000E5527 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF741D061187000E5527 /* ScoreViewController.swift */; };
 		5CFDDF771D08D7B7000E5527 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */; };
+		5CFDDF791D08DCF6000E5527 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF781D08DCF6000E5527 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5CFDDF721D026853000E5527 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = images/splash_screen.png; sourceTree = "<group>"; };
 		5CFDDF741D061187000E5527 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		5CFDDF781D08DCF6000E5527 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				5C9885791CF7C47300909B13 /* BookQuiz.swift */,
 				5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */,
 				5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */,
+				5CFDDF781D08DCF6000E5527 /* WebViewController.swift */,
 			);
 			path = BoutTime;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				5C9885681CF779EF00909B13 /* ViewController.swift in Sources */,
 				5C9885661CF779EF00909B13 /* AppDelegate.swift in Sources */,
 				5CFDDF751D061187000E5527 /* ScoreViewController.swift in Sources */,
+				5CFDDF791D08DCF6000E5527 /* WebViewController.swift in Sources */,
 				5C98857A1CF7C47300909B13 /* BookQuiz.swift in Sources */,
 				5C9885781CF7C16600909B13 /* Event.swift in Sources */,
 			);
