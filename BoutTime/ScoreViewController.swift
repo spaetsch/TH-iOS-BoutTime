@@ -12,7 +12,7 @@ class ScoreViewController: UIViewController {
     
     var questionsAsked = 0
     var questionsCorrect = 0
-    
+        
     @IBOutlet weak var finalScoreLabel: UILabel!
     
     override func viewDidLoad() {

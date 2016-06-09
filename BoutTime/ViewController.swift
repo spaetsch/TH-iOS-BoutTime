@@ -87,6 +87,16 @@ class ViewController: UIViewController {
                 destination.questionsCorrect = self.questionsCorrect
             }
         }
+        
+        if segue.identifier == "showWebViewSegue" {
+            if let destination = segue.destinationViewController as? WebViewController {
+                print("in prepare, in fi showWeb")
+                //need to send appropriate URL
+                destination.URL = "www.google.com"
+                print("have set url")
+            }
+        }
+        
     }
     
     override func canBecomeFirstResponder() -> Bool {

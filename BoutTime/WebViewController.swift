@@ -10,16 +10,18 @@ import UIKit
 
 class WebViewController: UIViewController {
 
-    let url = "http://apple.com"
+    var URL = "apple.com"
     
     @IBOutlet weak var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("where did i blow up view did load")
 
         // Do any additional setup after loading the view.
-        let requestURL = NSURL(string:url)
+        let requestURL = NSURL(string:URL)
         let request = NSURLRequest(URL: requestURL!)
+        print("set constants then try to load request")
         webView.loadRequest(request)
     }
 
@@ -27,6 +29,17 @@ class WebViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func dismissWebView(sender: AnyObject) {
+        print("butt")
+        print(URL)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+//    @IBAction func dismissWebView(sender: AnyObject) {
+//        dismissViewControllerAnimated(true, completion: nil)
+//
+//    }
+    
     
 
     /*

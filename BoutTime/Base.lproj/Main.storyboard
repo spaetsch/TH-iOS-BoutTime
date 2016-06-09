@@ -25,9 +25,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Umu-8N-GcG" userLabel="Event Stack 1">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="106"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-73-XvK" userLabel="q1BookButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-73-XvK" userLabel="q1BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <state key="normal" title="Title Title the Title by Author Author"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <state key="normal" title="Title Title the Title by Author Author">
+                                                    <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="DrB-BZ-qgF"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AVv-cv-xo7" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
@@ -51,9 +58,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-U5-fRx" userLabel="Event Stack 2">
                                         <rect key="frame" x="0.0" y="113" width="540" height="106"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <state key="normal" title="Title Title the Title by Author Author"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <state key="normal" title="Title Title the Title by Author Author">
+                                                    <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-mo-aUZ" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
@@ -227,7 +238,7 @@
         <!--Web View Controller-->
         <scene sceneID="XhV-oj-eMz">
             <objects>
-                <viewController id="AN8-3B-Lr2" userLabel="Web View Controller" customClass="WebViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webView" id="AN8-3B-Lr2" userLabel="Web View Controller" customClass="WebViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CLE-tr-w6A"/>
                         <viewControllerLayoutGuide type="bottom" id="JJb-Rz-dHF"/>
@@ -240,12 +251,24 @@
                                 <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KU-LsO" userLabel="dismissWebButton">
+                                <rect key="frame" x="268.5" y="283" width="63" height="34"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissWebView:" destination="AN8-3B-Lr2" eventType="touchUpInside" id="Ku0-7I-jc2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JJb-Rz-dHF" firstAttribute="top" secondItem="KBR-GP-DeX" secondAttribute="bottom" id="Mkr-Qy-Ifp"/>
+                            <constraint firstItem="07S-KU-LsO" firstAttribute="centerX" secondItem="Y6C-Ma-pVi" secondAttribute="centerX" id="gCg-n7-KPA"/>
                             <constraint firstItem="KBR-GP-DeX" firstAttribute="top" secondItem="Y6C-Ma-pVi" secondAttribute="topMargin" id="pgQ-Xq-IU7"/>
                             <constraint firstItem="KBR-GP-DeX" firstAttribute="leading" secondItem="Y6C-Ma-pVi" secondAttribute="leadingMargin" id="q7S-ub-Ic8"/>
+                            <constraint firstItem="07S-KU-LsO" firstAttribute="centerY" secondItem="Y6C-Ma-pVi" secondAttribute="centerY" id="qv2-P6-YDA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KBR-GP-DeX" secondAttribute="trailing" id="vmF-Hy-MG8"/>
                         </constraints>
                     </view>
