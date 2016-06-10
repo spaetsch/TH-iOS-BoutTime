@@ -134,8 +134,7 @@ class ViewController: UIViewController {
         displayRound()
     }
 
-    
-    // MARK: Helper Functions
+    // MARK: Helper Functions -- Managing the quiz questions
 
     // shuffles the loaded quiz and stores the first four elements in roundQuiz to create question set for a given round
     func setQuestions(original: BookQuiz) {
@@ -155,28 +154,40 @@ class ViewController: UIViewController {
         Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
     
-    // given a origin and destination label, swaps their text fields
-    func swapLabels(origin: UILabel, dest: UILabel){
-        let temp = origin.text
-        origin.text = dest.text
-        dest.text = temp
+    // sorts an array of Books in ascending order by .year
+    func sortBooks(books: BookQuiz) -> [Book]{
+        return books.events.sort({$0.year < $1.year})
     }
     
-    func swapButtonTitles(origin: UIButton, dest: UIButton){
-        let first = origin.titleLabel?.text
-        let second = dest.titleLabel?.text
-        origin.setTitle(second, forState: .Normal)
-        dest.setTitle(first, forState: .Normal)
-
+    // checks order of user choices against correct ascending order
+    func checkAnswers(){
+        questionsAsked += 1
+        
+        let answerKey = sortBooks(roundQuiz)
+        
+        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
+            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
+            questionsCorrect += 1
+            if (questionsAsked < numberOfRounds){
+                nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
+            } else {
+                showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
+            }
+        }
+        if (questionsAsked < numberOfRounds){
+            nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
+        } else {
+            showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
+        }
+        
+        if questionsAsked == numberOfRounds {
+            nextButton.hidden = true
+            timerLabel.hidden = true
+            showScoreButton.hidden = false
+        }
     }
     
-    // in addition to setting up new round, resets the game counters
-    func setupGame(){
-        questionsAsked = 0
-        questionsCorrect = 0
-        showScoreButton.hidden = true
-        setupNextRound()
-    }
+    // MARK: Helper Functions -- Managing the counter
 
     // resets timer to max
     func createTimer(){
@@ -184,7 +195,7 @@ class ViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(manageCounter), userInfo: nil, repeats: true)
         timerLabel.text = String(timerCounter)
     }
-
+    
     // Decrements the timer counter and displays to timer label
     // When timer reaches zero, invalidates timer and evaluates round
     func manageCounter(){
@@ -198,31 +209,17 @@ class ViewController: UIViewController {
         }
     }
     
-    // sorts an array of Books in ascending order by .year
-    func sortBooks(books: BookQuiz) -> [Book]{
-        return books.events.sort({$0.year < $1.year})
+    // MARK: Helper Functions -- Other
+
+    // in addition to setting up new round, resets the game counters
+    func setupGame(){
+        questionsAsked = 0
+        questionsCorrect = 0
+        showScoreButton.hidden = true
+        setupNextRound()
     }
     
-    // checks order of user choices against correct ascending order
-    func checkAnswers(){
-        questionsAsked += 1
-        
-        let answerKey = sortBooks(roundQuiz)
-
-        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
-            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
-            questionsCorrect += 1
-            nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
-        }
-        nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
-
-        if questionsAsked == numberOfRounds {
-            nextButton.hidden = true
-            timerLabel.hidden = true
-            showScoreButton.hidden = false            
-        }
-    }
-    
+    // grabs the associated URL for info on a button
     func setURL(senderButton: UIButton) -> String {
         if let label = senderButton.titleLabel {
             for item in roundQuiz.events {
@@ -234,10 +231,24 @@ class ViewController: UIViewController {
         return URL404
     }
     
+    // given a origin and destination label, swaps their text fields
+    func swapLabels(origin: UILabel, dest: UILabel){
+        let temp = origin.text
+        origin.text = dest.text
+        dest.text = temp
+    }
+    
+    func swapButtonTitles(origin: UIButton, dest: UIButton){
+        let first = origin.titleLabel?.text
+        let second = dest.titleLabel?.text
+        origin.setTitle(second, forState: .Normal)
+        dest.setTitle(first, forState: .Normal)
+        
+    }
+    
     // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
     func enableChoices(show: Bool){
         if show {
-            
             Q1DownButton.enabled = true
             Q2DownButton.enabled = true
             Q2UpButton.enabled = true
@@ -253,7 +264,6 @@ class ViewController: UIViewController {
             shakeTapLabel.text = "Shake to complete"
             
         } else {
-            
             Q1DownButton.enabled = false
             Q2DownButton.enabled = false
             Q2UpButton.enabled = false
