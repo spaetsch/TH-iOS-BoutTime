@@ -64,17 +64,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setupRound()
     }
 
-    override func viewWillAppear(animated: Bool) {
-        questionsAsked = 0
-        questionsCorrect = 0
-        enableChoices(true)
-        showScoreButton.hidden = true
-        
-        setQuestions(loadedQuiz)
-        displayRound()
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        questionsAsked = 0
+//        questionsCorrect = 0
+//        enableChoices(true)
+//        showScoreButton.hidden = true
+//        
+//        setQuestions(loadedQuiz)
+//        displayRound()
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,6 +106,13 @@ class ViewController: UIViewController {
         if motion == .MotionShake {
             timerCounter = 0  // run the timer out, triggers reset and evaluation of answer
         }
+    }
+    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
+        print("unwindfrom score")
+        setupRound()
+    }
+    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
+        print("unwindfrom webview")
     }
     
     
@@ -173,6 +181,15 @@ class ViewController: UIViewController {
         origin.setTitle(second, forState: .Normal)
         dest.setTitle(first, forState: .Normal)
 
+    }
+    func setupRound(){
+        questionsAsked = 0
+        questionsCorrect = 0
+        enableChoices(true)
+        showScoreButton.hidden = true
+        
+        setQuestions(loadedQuiz)
+        displayRound()
     }
     
     // resets timer to max
