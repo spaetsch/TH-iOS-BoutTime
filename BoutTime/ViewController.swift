@@ -66,7 +66,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupRound()
     }
+<<<<<<< Updated upstream
     
+||||||| merged common ancestors
+
+//    override func viewWillAppear(animated: Bool) {
+//        questionsAsked = 0
+//        questionsCorrect = 0
+//        enableChoices(true)
+//        showScoreButton.hidden = true
+//        
+//        setQuestions(loadedQuiz)
+//        displayRound()
+//    }
+    
+=======
+
+>>>>>>> Stashed changes
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -91,17 +107,38 @@ class ViewController: UIViewController {
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
-    
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             timerCounter = 0  // run the timer out, triggers reset and evaluation of answer
         }
     }
+<<<<<<< Updated upstream
     @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
         setupRound()
     }
     @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
         print(unwindSegue)
+||||||| merged common ancestors
+    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
+        print("unwindfrom score")
+        setupRound()
+    }
+    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
+        print("unwindfrom webview")
+=======
+    
+//    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
+//        print("unwindfrom score")
+//        setupRound()
+//    }
+//    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
+//        print("unwindfrom webview")
+//    }
+    @IBAction func unwindHandler(unwindSegue: UIStoryboardSegue){
+        if unwindSegue == "showScoreSegue" {
+            setupRound()
+        }
+>>>>>>> Stashed changes
     }
     
     

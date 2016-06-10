@@ -259,7 +259,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="l8D-co-PJp" kind="unwind" unwindAction="unwindFromWeb:" id="LgC-0G-2AU"/>
+                                    <segue destination="l8D-co-PJp" kind="unwind" unwindAction="unwindHandler:" id="t1Y-VV-P2b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,7 +313,7 @@
                                 </constraints>
                                 <state key="normal" image="play_again"/>
                                 <connections>
-                                    <segue destination="hVV-tv-B4M" kind="unwind" unwindAction="unwindFromScore:" id="tVz-us-Nfr"/>
+                                    <segue destination="hVV-tv-B4M" kind="unwind" unwindAction="unwindHandler:" id="Jte-7K-YEv"/>
                                 </connections>
                             </button>
                         </subviews>
