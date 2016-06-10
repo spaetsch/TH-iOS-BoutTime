@@ -66,16 +66,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupRound()
     }
-
-//    override func viewWillAppear(animated: Bool) {
-//        questionsAsked = 0
-//        questionsCorrect = 0
-//        enableChoices(true)
-//        showScoreButton.hidden = true
-//        
-//        setQuestions(loadedQuiz)
-//        displayRound()
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -108,11 +98,10 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
-        print("unwindfrom score")
         setupRound()
     }
     @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
-        print("unwindfrom webview")
+        print(unwindSegue)
     }
     
     
