@@ -182,7 +182,7 @@
                                     <constraint firstAttribute="width" secondItem="cFZ-nS-W2z" secondAttribute="height" multiplier="4:1" id="lFE-2I-cbD"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="clickNext" destination="BYZ-38-t0r" eventType="touchUpInside" id="nBj-NW-0ad"/>
+                                    <action selector="setupNextRound" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psy-mt-l5y"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-lU-MGd" userLabel="showScoreButton">
@@ -259,7 +259,7 @@
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="l8D-co-PJp" kind="unwind" unwindAction="unwindHandler:" id="t1Y-VV-P2b"/>
+                                    <segue destination="l8D-co-PJp" kind="unwind" identifier="unwindFromWeb" unwindAction="unwindHandler:" id="t1Y-VV-P2b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,7 +313,7 @@
                                 </constraints>
                                 <state key="normal" image="play_again"/>
                                 <connections>
-                                    <segue destination="hVV-tv-B4M" kind="unwind" unwindAction="unwindHandler:" id="Jte-7K-YEv"/>
+                                    <segue destination="hVV-tv-B4M" kind="unwind" identifier="unwindFromScore" unwindAction="unwindHandler:" id="Jte-7K-YEv"/>
                                 </connections>
                             </button>
                         </subviews>

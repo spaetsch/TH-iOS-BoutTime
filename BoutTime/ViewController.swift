@@ -38,18 +38,19 @@ class ViewController: UIViewController {
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
     
+    // game constants
     let numberOfBooks = 4
     let numberOfRounds = 3 // 6
-    
+    let maxTime = 15 //60 seconds
+
+    let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
+
+    // game counters
     var questionsAsked = 0
     var questionsCorrect = 0
-    
-    let maxTime = 15 //60 seconds
     var timerCounter: Int = 0
     var timer = NSTimer()
     
-    let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
-
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
@@ -63,31 +64,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        setupRound()
+        setupGame()
     }
-<<<<<<< Updated upstream
-    
-||||||| merged common ancestors
 
-//    override func viewWillAppear(animated: Bool) {
-//        questionsAsked = 0
-//        questionsCorrect = 0
-//        enableChoices(true)
-//        showScoreButton.hidden = true
-//        
-//        setQuestions(loadedQuiz)
-//        displayRound()
-//    }
-    
-=======
-
->>>>>>> Stashed changes
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // before segueing to another view, pass along the required variable values
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showScoreSegue" {
             if let destination = segue.destinationViewController as? ScoreViewController {
@@ -95,7 +80,6 @@ class ViewController: UIViewController {
                 destination.questionsCorrect = self.questionsCorrect
             }
         }
-        
         if segue.identifier == "showWebViewSegue" {
             if let destination = segue.destinationViewController as? WebViewController {
                 destination.webViewURL = setURL(sender as! UIButton)
@@ -107,40 +91,19 @@ class ViewController: UIViewController {
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
+    // respond to shaking device by ending the round
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             timerCounter = 0  // run the timer out, triggers reset and evaluation of answer
         }
     }
-<<<<<<< Updated upstream
-    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
-        setupRound()
-    }
-    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
-        print(unwindSegue)
-||||||| merged common ancestors
-    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
-        print("unwindfrom score")
-        setupRound()
-    }
-    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
-        print("unwindfrom webview")
-=======
     
-//    @IBAction func unwindFromScore(unwindSegue: UIStoryboardSegue){
-//        print("unwindfrom score")
-//        setupRound()
-//    }
-//    @IBAction func unwindFromWeb(unwindSegue: UIStoryboardSegue){
-//        print("unwindfrom webview")
-//    }
+    // when unwinding back to main view, check if game needs to be reset
     @IBAction func unwindHandler(unwindSegue: UIStoryboardSegue){
-        if unwindSegue == "showScoreSegue" {
-            setupRound()
+        if unwindSegue.identifier == "unwindFromScore" {
+            setupGame()
         }
->>>>>>> Stashed changes
     }
-    
     
     // when arrow button is clicked, handles determining which labels should be swapped
     @IBAction func arrowClick(sender: UIButton) {
@@ -161,17 +124,16 @@ class ViewController: UIViewController {
             print("oops")
         }
     }
-    
-    func setURL(senderButton: UIButton) -> String {
-        if let label = senderButton.titleLabel {
-            for item in roundQuiz.events {
-                if item.desc == label.text {
-                    return item.URL
-                }
-            }
-        }
-        return URL404
+
+    // resets questions, timer, buttons
+    @IBAction func setupNextRound() {
+        roundQuiz = BookQuiz(events: []) // blank quiz
+        enableChoices(true)
+        setQuestions(loadedQuiz)
+        createTimer()
+        displayRound()
     }
+
     
     // MARK: Helper Functions
 
@@ -183,7 +145,6 @@ class ViewController: UIViewController {
     
     // sets the label text for each choice to .desc from events array
     func displayRound(){
-        createTimer()
         
         //Q1Label.text = "\(roundQuiz.events[0].desc)"
         q1BookButton.setTitle(roundQuiz.events[0].desc, forState: .Normal)
@@ -208,16 +169,15 @@ class ViewController: UIViewController {
         dest.setTitle(first, forState: .Normal)
 
     }
-    func setupRound(){
+    
+    // in addition to setting up new round, resets the game counters
+    func setupGame(){
         questionsAsked = 0
         questionsCorrect = 0
-        enableChoices(true)
         showScoreButton.hidden = true
-        
-        setQuestions(loadedQuiz)
-        displayRound()
+        setupNextRound()
     }
-    
+
     // resets timer to max
     func createTimer(){
         timerCounter = maxTime
@@ -225,15 +185,6 @@ class ViewController: UIViewController {
         timerLabel.text = String(timerCounter)
     }
 
-    // next round button is clicked, checks if the game should continue or display final score
-    // if continuing game, resets questions and displays new set
-    @IBAction func clickNext() {
-            roundQuiz = BookQuiz(events: []) // blank quiz
-            setQuestions(loadedQuiz)
-            displayRound()
-            enableChoices(true)
-    }
-    
     // Decrements the timer counter and displays to timer label
     // When timer reaches zero, invalidates timer and evaluates round
     func manageCounter(){
@@ -270,6 +221,17 @@ class ViewController: UIViewController {
             timerLabel.hidden = true
             showScoreButton.hidden = false            
         }
+    }
+    
+    func setURL(senderButton: UIButton) -> String {
+        if let label = senderButton.titleLabel {
+            for item in roundQuiz.events {
+                if item.desc == label.text {
+                    return item.URL
+                }
+            }
+        }
+        return URL404
     }
     
     // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
