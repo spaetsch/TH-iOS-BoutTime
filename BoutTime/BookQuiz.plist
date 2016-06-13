@@ -2,6 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
+  <dict>
+    <key>name</key>
+    <string>The Wolves of Willoughby Chase by Joan Aiken</string>
+    <key>year</key>
+    <string>1962</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Wolves_of_Willoughby_Chase</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>Witch World by Andre Norton</string>
+    <key>year</key>
+    <string>1963</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Witch_World_(novel)</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>The Left Hand of Darkness by Ursula K. Le Guin</string>
+    <key>year</key>
+    <string>1969</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>The Dark is Rising by Susan Cooper</string>
+    <key>year</key>
+    <string>1973</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Dark_Is_Rising_Sequence</string>
+  </dict>
+  <dict>
+    <key>name</key>
+    <string>Harpist in the Wind by Patricia A. McKillip</string>
+    <key>year</key>
+    <string>1979</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/Harpist_in_the_Wind</string>
+  </dict>
 	<dict>
 		<key>name</key>
 		<string>The Children of Men by P.D. James</string>

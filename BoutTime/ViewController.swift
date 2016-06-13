@@ -145,11 +145,9 @@ class ViewController: UIViewController {
     // sets the label text for each choice to .desc from events array
     func displayRound(){
         
-        //Q1Label.text = "\(roundQuiz.events[0].desc)"
         q1BookButton.setTitle(roundQuiz.events[0].desc, forState: .Normal)
         q2BookButton.setTitle(roundQuiz.events[1].desc, forState: .Normal)
 
-        //Q2Label.text = "\(roundQuiz.events[1].desc)"
         Q3Label.text = "\(roundQuiz.events[2].desc)"
         Q4Label.text = "\(roundQuiz.events[3].desc)"
     }

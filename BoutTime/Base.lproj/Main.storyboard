@@ -25,10 +25,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Umu-8N-GcG" userLabel="Event Stack 1">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="106"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-73-XvK" userLabel="q1BookButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-73-XvK" userLabel="q1BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                 <state key="normal" title="Title Title the Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -59,10 +60,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-U5-fRx" userLabel="Event Stack 2">
                                         <rect key="frame" x="0.0" y="113" width="540" height="106"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                 <state key="normal" title="Title Title the Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -306,9 +308,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmE-VQ-c14" userLabel="playAgainButton">
-                                <rect key="frame" x="232.5" y="344" width="135" height="45"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmE-VQ-c14" userLabel="playAgainButton">
+                                <rect key="frame" x="225" y="344" width="150" height="50"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aDZ-OW-IZt"/>
                                     <constraint firstAttribute="width" secondItem="WmE-VQ-c14" secondAttribute="height" multiplier="3:1" id="z7v-19-f2s"/>
                                 </constraints>
                                 <state key="normal" image="play_again"/>
