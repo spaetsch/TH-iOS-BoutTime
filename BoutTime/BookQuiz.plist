@@ -4,6 +4,14 @@
 <array>
   <dict>
     <key>name</key>
+    <string>The Snow Queen by Joan D. Vinge </string>
+    <key>year</key>
+    <string>1980</string>
+    <key>URL</key>
+    <string>https://en.wikipedia.org/wiki/The_Snow_Queen_(Vinge_novel)</string>
+  </dict>
+  <dict>
+    <key>name</key>
     <string>The Wolves of Willoughby Chase by Joan Aiken</string>
     <key>year</key>
     <string>1962</string>
