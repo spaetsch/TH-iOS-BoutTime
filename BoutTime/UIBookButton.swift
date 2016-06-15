@@ -22,8 +22,9 @@ class UIBookButton: UIButton {
         
         
         self.setTitle("\(bookTitle)\nby \(bookAuthor)", forState: .Normal)
-        //self.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, forState: <#T##UIControlState#>)
+        //self.setAttributedTitle(title: NSAttributedString?, forState: <#T##UIControlState#>)
 
+        
         
         self.layer.cornerRadius = 10.0;
         self.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 30)

@@ -145,15 +145,30 @@ class ViewController: UIViewController {
     // sets the label text for each choice to .desc from events array
     func displayRound(){
         
-        let title1 = "test title"
-        let author1 = "test author"
+        let title1 = "Testy Title"
+        let byline = "\nby Test Author"
+        
+        let fontAtt = [NSFontAttributeName : UIFont.systemFontOfSize(14.0)]
+        let boldFontAtt = [NSFontAttributeName : UIFont.boldSystemFontOfSize(16.0)]
+        
+        let boldTitle = NSAttributedString(string: title1, attributes: boldFontAtt)
+        let normalAuthor = NSAttributedString(string: byline, attributes: fontAtt)
+        
+        let attLabelText = NSMutableAttributedString(attributedString: boldTitle)
+        attLabelText.appendAttributedString(normalAuthor)
         
         //let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(16)]
         
         //let boldtitle1 = NSMutableAttributedString(string:title1, attributes:att)
         
-        q1BookButton.setTitle("\(title1)\nby \(author1)", forState: .Normal)
+        //UIFont.boldSystemFontOfSize(18.0)
+        //UIFont.systemFontOfSize(19.0)
+        //self.setAttributedTitle(title: NSAttributedString?, forState: <#T##UIControlState#>)
+
+        q1BookButton.setAttributedTitle(attLabelText, forState: .Normal)
+        //q1BookButton.setTitle("\(title1)\nby \(author1)", forState: .Normal)
        // q2BookButton.setTitle(roundQuiz.events[1].desc, forState: .Normal)
+        
 
         Q3Label.text = "\(roundQuiz.events[2].desc)"
         Q4Label.text = "\(roundQuiz.events[3].desc)"
