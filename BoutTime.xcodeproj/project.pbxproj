@@ -7,25 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C6D75351D1099A900B51BCF /* UIBookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D75341D1099A900B51BCF /* UIBookButton.swift */; };
-		5C6D75371D109BEC00B51BCF /* UIBookTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D75361D109BEC00B51BCF /* UIBookTitleLabel.swift */; };
 		5C9885661CF779EF00909B13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885651CF779EF00909B13 /* AppDelegate.swift */; };
 		5C9885681CF779EF00909B13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885671CF779EF00909B13 /* ViewController.swift */; };
 		5C98856B1CF779EF00909B13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9885691CF779EF00909B13 /* Main.storyboard */; };
 		5C98856D1CF779EF00909B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C98856C1CF779EF00909B13 /* Assets.xcassets */; };
 		5C9885701CF779EF00909B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C98856E1CF779EF00909B13 /* LaunchScreen.storyboard */; };
-		5C9885781CF7C16600909B13 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885771CF7C16600909B13 /* Event.swift */; };
+		5C9885781CF7C16600909B13 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885771CF7C16600909B13 /* Book.swift */; };
 		5C98857A1CF7C47300909B13 /* BookQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9885791CF7C47300909B13 /* BookQuiz.swift */; };
 		5C98857C1CF7C7EB00909B13 /* BookQuiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */; };
 		5CFDDF731D026853000E5527 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFDDF721D026853000E5527 /* splash_screen.png */; };
 		5CFDDF751D061187000E5527 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF741D061187000E5527 /* ScoreViewController.swift */; };
-		5CFDDF771D08D7B7000E5527 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */; };
 		5CFDDF791D08DCF6000E5527 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFDDF781D08DCF6000E5527 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C6D75341D1099A900B51BCF /* UIBookButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBookButton.swift; sourceTree = "<group>"; };
-		5C6D75361D109BEC00B51BCF /* UIBookTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBookTitleLabel.swift; sourceTree = "<group>"; };
 		5C9885621CF779EF00909B13 /* BoutTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoutTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9885651CF779EF00909B13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C9885671CF779EF00909B13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,12 +28,11 @@
 		5C98856C1CF779EF00909B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C98856F1CF779EF00909B13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C9885711CF779EF00909B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C9885771CF7C16600909B13 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		5C9885771CF7C16600909B13 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		5C9885791CF7C47300909B13 /* BookQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookQuiz.swift; sourceTree = "<group>"; };
 		5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BookQuiz.plist; sourceTree = "<group>"; };
 		5CFDDF721D026853000E5527 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_screen.png; path = images/splash_screen.png; sourceTree = "<group>"; };
 		5CFDDF741D061187000E5527 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
-		5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		5CFDDF781D08DCF6000E5527 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,13 +74,10 @@
 				5C98856C1CF779EF00909B13 /* Assets.xcassets */,
 				5C98856E1CF779EF00909B13 /* LaunchScreen.storyboard */,
 				5C9885711CF779EF00909B13 /* Info.plist */,
-				5C9885771CF7C16600909B13 /* Event.swift */,
+				5C9885771CF7C16600909B13 /* Book.swift */,
 				5C9885791CF7C47300909B13 /* BookQuiz.swift */,
 				5C98857B1CF7C7EB00909B13 /* BookQuiz.plist */,
-				5CFDDF761D08D7B7000E5527 /* PaddedLabel.swift */,
 				5CFDDF781D08DCF6000E5527 /* WebViewController.swift */,
-				5C6D75341D1099A900B51BCF /* UIBookButton.swift */,
-				5C6D75361D109BEC00B51BCF /* UIBookTitleLabel.swift */,
 			);
 			path = BoutTime;
 			sourceTree = "<group>";
@@ -164,15 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CFDDF771D08D7B7000E5527 /* PaddedLabel.swift in Sources */,
-				5C6D75371D109BEC00B51BCF /* UIBookTitleLabel.swift in Sources */,
 				5C9885681CF779EF00909B13 /* ViewController.swift in Sources */,
-				5C6D75351D1099A900B51BCF /* UIBookButton.swift in Sources */,
 				5C9885661CF779EF00909B13 /* AppDelegate.swift in Sources */,
 				5CFDDF751D061187000E5527 /* ScoreViewController.swift in Sources */,
 				5CFDDF791D08DCF6000E5527 /* WebViewController.swift in Sources */,
 				5C98857A1CF7C47300909B13 /* BookQuiz.swift in Sources */,
-				5C9885781CF7C16600909B13 /* Event.swift in Sources */,
+				5C9885781CF7C16600909B13 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

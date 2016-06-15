@@ -8,18 +8,15 @@
 
 import Foundation
 
-protocol EventType {
-    var desc: String { get }
-    var year: Int { get }
-}
-
-class Book: EventType {
-    var desc: String
+class Book {
+    var title: String
+    var author: String
     var year: Int
     var URL: String
     
-    init(desc: String, year: Int, URL: String){
-        self.desc = desc
+    init(title: String, author: String, year: Int, URL: String){
+        self.title = title
+        self.author = author
         self.year = year
         self.URL = URL
     }

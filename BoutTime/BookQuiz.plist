@@ -3,104 +3,130 @@
 <plist version="1.0">
 <array>
   <dict>
-    <key>name</key>
-    <string>The Snow Queen by Joan D. Vinge </string>
+    <key>title</key>
+    <string>The Snow Queen</string>
+    <key>author</key>
+    <string>Joan D. Vinge </string>
     <key>year</key>
     <string>1980</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Snow_Queen_(Vinge_novel)</string>
   </dict>
   <dict>
-    <key>name</key>
-    <string>The Wolves of Willoughby Chase by Joan Aiken</string>
+    <key>title</key>
+    <string>The Wolves of Willoughby Chase</string>
+    <key>author</key>
+    <string>Joan Aiken</string>
     <key>year</key>
     <string>1962</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Wolves_of_Willoughby_Chase</string>
   </dict>
   <dict>
-    <key>name</key>
-    <string>Witch World by Andre Norton</string>
+    <key>title</key>
+    <string>Witch World</string>
+    <key>author</key>
+    <string>Andre Norton</string>
     <key>year</key>
     <string>1963</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/Witch_World_(novel)</string>
   </dict>
   <dict>
-    <key>name</key>
-    <string>The Left Hand of Darkness by Ursula K. Le Guin</string>
+    <key>title</key>
+    <string>The Left Hand of Darkness</string>
+    <key>author</key>
+    <string>Ursula K. Le Guin</string>
     <key>year</key>
     <string>1969</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness</string>
   </dict>
   <dict>
-    <key>name</key>
-    <string>The Dark is Rising by Susan Cooper</string>
+    <key>title</key>
+    <string>The Dark is Rising</string>
+    <key>author</key>
+    <string>Susan Cooper</string>
     <key>year</key>
     <string>1973</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Dark_Is_Rising_Sequence</string>
   </dict>
   <dict>
-    <key>name</key>
-    <string>Harpist in the Wind by Patricia A. McKillip</string>
+    <key>title</key>
+    <string>Harpist in the Wind</string>
+    <key>author</key>
+    <string>Patricia A. McKillip</string>
     <key>year</key>
     <string>1979</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/Harpist_in_the_Wind</string>
   </dict>
 	<dict>
-		<key>name</key>
-		<string>The Children of Men by P.D. James</string>
+		<key>title</key>
+		<string>The Children of Men</string>
+    <key>author</key>
+    <string>P.D. James</string>
 		<key>year</key>
 		<string>1992</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Children_of_Men</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>The Handmaid&apos;s Tale by Margaret Atwood</string>
+		<key>title</key>
+		<string>The Handmaid&apos;s Tale</string>
+    <key>author</key>
+    <string>Margaret Atwood</string>
 		<key>year</key>
 		<string>1985</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Kindred by Octavia Butler</string>
+		<key>title</key>
+		<string>Kindred</string>
+    <key>author</key>
+    <string>Octavia Butler</string>
 		<key>year</key>
 		<string>1979</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/Kindred_(novel)</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>A Wrinkle in Time by Madeleine L&apos;Engle</string>
+		<key>title</key>
+		<string>A Wrinkle in Time</string>
+    <key>author</key>
+    <string>Madeleine L&apos;Engle</string>
 		<key>year</key>
 		<string>1962</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/A_Wrinkle_in_Time</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Dragonflight by Anne McCaffrey</string>
+		<key>title</key>
+		<string>Dragonflight</string>
+    <key>author</key>
+    <string>Anne McCaffrey</string>
 		<key>year</key>
 		<string>1968</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/Dragonflight</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>The Speed of Dark by Elizabeth Moon</string>
+		<key>title</key>
+		<string>The Speed of Dark</string>
+    <key>author</key>
+    <string>Elizabeth Moon</string>
 		<key>year</key>
 		<string>2003</string>
     <key>URL</key>
     <string>https://en.wikipedia.org/wiki/Speed_of_Dark</string>
 	</dict>
 	<dict>
-		<key>name</key>
-		<string>Ancillary Justice by Ann Leckie</string>
+		<key>title</key>
+		<string>Ancillary Justice</string>
+    <key>author</key>
+    <string>Ann Leckie</string>
 		<key>year</key>
 		<string>2013</string>
     <key>URL</key>

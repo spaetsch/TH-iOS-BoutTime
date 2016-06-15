@@ -170,8 +170,8 @@ class ViewController: UIViewController {
        // q2BookButton.setTitle(roundQuiz.events[1].desc, forState: .Normal)
         
 
-        Q3Label.text = "\(roundQuiz.events[2].desc)"
-        Q4Label.text = "\(roundQuiz.events[3].desc)"
+       // Q3Label.text = "\(roundQuiz.events[2].desc)"
+       // Q4Label.text = "\(roundQuiz.events[3].desc)"
     }
     
     // sorts an array of Books in ascending order by .year
@@ -185,15 +185,15 @@ class ViewController: UIViewController {
         
         let answerKey = sortBooks(roundQuiz)
         
-        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
-            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
-            questionsCorrect += 1
-            if (questionsAsked < numberOfRounds){
-                nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
-            } else {
-                showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
-            }
-        }
+//        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
+//            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
+//            questionsCorrect += 1
+//            if (questionsAsked < numberOfRounds){
+//                nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
+//            } else {
+//                showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
+//            }
+//        }
         if (questionsAsked < numberOfRounds){
             nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
         } else {
@@ -241,13 +241,13 @@ class ViewController: UIViewController {
     
     // grabs the associated URL for info on a button
     func setURL(senderButton: UIButton) -> String {
-        if let label = senderButton.titleLabel {
-            for item in roundQuiz.events {
-                if item.desc == label.text {
-                    return item.URL
-                }
-            }
-        }
+//        if let label = senderButton.titleLabel {
+//            for item in roundQuiz.events {
+//                if item.desc == label.text {
+//                    return item.URL
+//                }
+//            }
+//        }
         return URL404
     }
     

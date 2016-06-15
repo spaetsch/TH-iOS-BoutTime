@@ -49,11 +49,12 @@ class QuizUnarchiver {
         var quiz: [Book] = []
 
         for book in array {
-            if let desc = book["name"],
-            let year = book["year"],
-            let convertYr = Int(year),
-            let URL = book["URL"]{
-                let newBook = Book(desc: desc, year: convertYr, URL: URL)
+            if let title = book["title"],
+                let author = book["author"],
+                let year = book["year"],
+                let convertYr = Int(year),
+                let URL = book["URL"]{
+                let newBook = Book(title: title, author: author, year: convertYr, URL: URL)
                 quiz.append(newBook)
             }
         }
