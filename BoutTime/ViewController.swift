@@ -39,6 +39,11 @@ class ViewController: UIViewController {
     let numberOfRounds = 6 // 6
     let maxTime = 60 //60 seconds
 
+    let soundSuccess = "/audio/CorrectDing"
+    let soundFail = "/audio/IncorrectBuzz"
+    var currSoundID: SystemSoundID = 0
+
+    
     let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
     // game counters
@@ -195,10 +200,14 @@ class ViewController: UIViewController {
                 questionsCorrect += 1
                 nextButton.setImage(UIImage(named: "next_round_success"), forState: .Normal)
                 showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
+                loadSound(soundSuccess, soundID: &currSoundID, type: "wav")    //Loads and plays "correct answer" sound
+                AudioServicesPlaySystemSound(currSoundID)
                 
             } else {
                 nextButton.setImage(UIImage(named: "next_round_fail"), forState: .Normal)
                 showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
+                loadSound(soundFail, soundID: &currSoundID, type: "wav")    //Loads and plays "correct answer" sound
+                AudioServicesPlaySystemSound(currSoundID)
             }
         }
 
@@ -295,6 +304,14 @@ class ViewController: UIViewController {
             nextButton.hidden = false
             shakeTapLabel.text = "Tap books for more info"
         }
+    }
+    
+    
+    // Loads sound file at given path of given file type
+    func loadSound(path:String, soundID: UnsafeMutablePointer<SystemSoundID>, type:String){
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource(path, ofType: type)
+        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL, soundID)
     }
 }
 
