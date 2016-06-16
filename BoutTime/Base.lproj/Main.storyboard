@@ -266,12 +266,12 @@
                                 <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KU-LsO" userLabel="dismissWebButton">
-                                <rect key="frame" x="268.5" y="283" width="63" height="34"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Dismiss">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KU-LsO" userLabel="dismissWebButton">
+                                <rect key="frame" x="0.0" y="-10" width="600" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="PX7-y7-SPy"/>
+                                </constraints>
+                                <state key="normal" image="webview_bar"/>
                                 <connections>
                                     <segue destination="l8D-co-PJp" kind="unwind" identifier="unwindFromWeb" unwindAction="unwindHandler:" id="t1Y-VV-P2b"/>
                                 </connections>
@@ -279,11 +279,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="07S-KU-LsO" firstAttribute="leading" secondItem="Y6C-Ma-pVi" secondAttribute="leadingMargin" constant="-20" id="ChT-S4-wPx"/>
                             <constraint firstItem="JJb-Rz-dHF" firstAttribute="top" secondItem="KBR-GP-DeX" secondAttribute="bottom" id="Mkr-Qy-Ifp"/>
-                            <constraint firstItem="07S-KU-LsO" firstAttribute="centerX" secondItem="Y6C-Ma-pVi" secondAttribute="centerX" id="gCg-n7-KPA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="07S-KU-LsO" secondAttribute="trailing" constant="-20" id="fyW-pc-zne"/>
+                            <constraint firstItem="07S-KU-LsO" firstAttribute="top" secondItem="Y6C-Ma-pVi" secondAttribute="topMargin" constant="-10" id="pdr-YJ-ioT"/>
                             <constraint firstItem="KBR-GP-DeX" firstAttribute="top" secondItem="Y6C-Ma-pVi" secondAttribute="topMargin" id="pgQ-Xq-IU7"/>
                             <constraint firstItem="KBR-GP-DeX" firstAttribute="leading" secondItem="Y6C-Ma-pVi" secondAttribute="leadingMargin" id="q7S-ub-Ic8"/>
-                            <constraint firstItem="07S-KU-LsO" firstAttribute="centerY" secondItem="Y6C-Ma-pVi" secondAttribute="centerY" id="qv2-P6-YDA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KBR-GP-DeX" secondAttribute="trailing" id="vmF-Hy-MG8"/>
                         </constraints>
                     </view>
@@ -363,6 +364,7 @@
         <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
         <image name="up_half_selected" width="158" height="229"/>
+        <image name="webview_bar" width="1333" height="167"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TgA-oR-ODF"/>
