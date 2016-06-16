@@ -12,15 +12,12 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-   // @IBOutlet weak var Q1Label: UILabel!
     
     @IBOutlet weak var q1BookButton: UIButton!
     @IBOutlet weak var q2BookButton: UIButton!
-    
-   // @IBOutlet weak var Q2Label: UILabel!
-    @IBOutlet weak var Q3Label: UILabel!
-    @IBOutlet weak var Q4Label: UILabel!
-    
+    @IBOutlet weak var q3BookButton: UIButton!
+    @IBOutlet weak var q4BookButton: UIButton!
+
     @IBOutlet weak var Q1DownButton: UIButton!
     @IBOutlet weak var Q2UpButton: UIButton!
     @IBOutlet weak var Q2DownButton: UIButton!
@@ -170,8 +167,8 @@ class ViewController: UIViewController {
 
         q1BookButton.setAttributedTitle(attLabelText1, forState: .Normal)
         q2BookButton.setAttributedTitle(attLabelText2, forState: .Normal)
-        //q3BookButton.setAttributedTitle(attLabelText3, forState: .Normal)
-        //q4BookButton.setAttributedTitle(attLabelText4, forState: .Normal)
+        q3BookButton.setAttributedTitle(attLabelText3, forState: .Normal)
+        q4BookButton.setAttributedTitle(attLabelText4, forState: .Normal)
 
     }
     

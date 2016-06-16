@@ -60,12 +60,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bGx-U5-fRx" userLabel="Event Stack 2">
                                         <rect key="frame" x="0.0" y="113" width="540" height="106"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton" customClass="UIBookButton" customModule="BoutTime" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Mld-Tg-Sc7" userLabel="q2BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
-                                                <state key="normal" title="Storyboard label">
+                                                <state key="normal" title="Title Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
@@ -100,13 +100,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2JI-vM-eiJ" userLabel="Event Stack 3">
                                         <rect key="frame" x="0.0" y="226" width="540" height="106"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Title the Title by Author Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRa-sC-xSL" userLabel="Q3Label" customClass="PaddedLabel" customModule="BoutTime" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uic-wz-0Dt" userLabel="q3BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+                                                <state key="normal" title="Title Title by Author Author">
+                                                    <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-Ln-vgx" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
@@ -138,13 +140,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vhz-J6-L29" userLabel="Event Stack 4">
                                         <rect key="frame" x="0.0" y="339" width="540" height="106"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Title the Title by Author Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoM-Om-0Sb" userLabel="Q4Label" customClass="PaddedLabel" customModule="BoutTime" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="S8G-NU-NGu" userLabel="q4BookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="500" height="106"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+                                                <state key="normal" title="Title Title by Author Author">
+                                                    <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pjX-4D-64X" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
                                                 <subviews>
@@ -222,14 +226,14 @@
                         <outlet property="Q2DownButton" destination="6Zx-J1-cy1" id="76e-KD-zMI"/>
                         <outlet property="Q2UpButton" destination="Aij-8e-mDZ" id="gRK-Xr-lo3"/>
                         <outlet property="Q3DownButton" destination="e8e-cC-M2R" id="dYU-al-Mpc"/>
-                        <outlet property="Q3Label" destination="RRa-sC-xSL" id="UTL-Cj-oYF"/>
                         <outlet property="Q3UpButton" destination="RfG-Fu-LWO" id="ItB-7s-kpk"/>
-                        <outlet property="Q4Label" destination="aoM-Om-0Sb" id="F3o-g5-3vY"/>
                         <outlet property="Q4UpButton" destination="f7p-zy-r7a" id="qg0-qD-CYU"/>
                         <outlet property="TimerLabel" destination="fjx-fp-TSm" id="lim-e7-R7Z"/>
                         <outlet property="nextButton" destination="cFZ-nS-W2z" id="wtJ-WY-7am"/>
                         <outlet property="q1BookButton" destination="jAO-73-XvK" id="iaO-rB-aqD"/>
                         <outlet property="q2BookButton" destination="Mld-Tg-Sc7" id="Tjc-aO-Dp5"/>
+                        <outlet property="q3BookButton" destination="uic-wz-0Dt" id="c1G-dB-kov"/>
+                        <outlet property="q4BookButton" destination="S8G-NU-NGu" id="NSY-Rx-asK"/>
                         <outlet property="shakeTapLabel" destination="Uv4-te-oGr" id="fKn-og-xTR"/>
                         <outlet property="showScoreButton" destination="Ogz-lU-MGd" id="0lb-uT-MAb"/>
                     </connections>
