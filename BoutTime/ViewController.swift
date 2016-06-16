@@ -12,7 +12,6 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var q1BookButton: UIButton!
     @IBOutlet weak var q2BookButton: UIButton!
     @IBOutlet weak var q3BookButton: UIButton!
@@ -37,8 +36,8 @@ class ViewController: UIViewController {
     
     // game constants
     let numberOfBooks = 4
-    let numberOfRounds = 3 // 6
-    let maxTime = 3 //60 seconds
+    let numberOfRounds = 6 // 6
+    let maxTime = 60 //60 seconds
 
     let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
@@ -107,16 +106,16 @@ class ViewController: UIViewController {
         switch sender {
         case Q1DownButton:
             swapButtonTitles(q1BookButton, dest: q2BookButton)
-        /*case Q2DownButton:
-            swapLabels(Q2Label, dest: Q3Label)*/
+        case Q2DownButton:
+            swapButtonTitles(q2BookButton, dest: q3BookButton)
         case Q2UpButton:
             swapButtonTitles(q2BookButton, dest: q1BookButton)
-        /* case Q3DownButton:
-            swapLabels(Q3Label, dest: Q4Label)
+        case Q3DownButton:
+            swapButtonTitles(q3BookButton, dest: q4BookButton)
         case Q3UpButton:
-            swapLabels(Q3Label, dest: Q2Label)
+            swapButtonTitles(q3BookButton, dest: q2BookButton)
         case Q4UpButton:
-            swapLabels(Q4Label, dest: Q3Label)*/
+            swapButtonTitles(q4BookButton, dest: q3BookButton)
         default:
             print("oops")
         }
@@ -192,8 +191,13 @@ class ViewController: UIViewController {
                 && answer2 == "\(sortedQuiz[1].title)\nby \(sortedQuiz[1].author)"
                 && answer3 == "\(sortedQuiz[2].title)\nby \(sortedQuiz[2].author)"
                 && answer4 == "\(sortedQuiz[3].title)\nby \(sortedQuiz[3].author)" {
+                
+                questionsCorrect += 1
+                nextButton.setImage(UIImage(named: "next_round_success"), forState: .Normal)
+                showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
+                
             } else {
-                nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
+                nextButton.setImage(UIImage(named: "next_round_fail"), forState: .Normal)
                 showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
             }
         }
@@ -251,18 +255,12 @@ class ViewController: UIViewController {
     }
     
     // given a origin and destination label, swaps their text fields
-    func swapLabels(origin: UILabel, dest: UILabel){
-        let temp = origin.text
-        origin.text = dest.text
-        dest.text = temp
-    }
     
     func swapButtonTitles(origin: UIButton, dest: UIButton){
-        let first = origin.titleLabel?.text
-        let second = dest.titleLabel?.text
-        origin.setTitle(second, forState: .Normal)
-        dest.setTitle(first, forState: .Normal)
-        
+        let first = origin.attributedTitleForState(.Normal)
+        let second = dest.attributedTitleForState(.Normal)
+        origin.setAttributedTitle(second, forState: .Normal)
+        dest.setAttributedTitle(first, forState: .Normal)
     }
     
     // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
