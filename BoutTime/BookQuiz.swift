@@ -9,12 +9,11 @@
 import Foundation
 
 class BookQuiz {
-    var events: [Book]
+    var questions: [Book]
     
-    init(events: [Book]){
-        self.events = events
+    init(questions: [Book]){
+        self.questions = questions
     }
-    
 }
 
 // Error Types

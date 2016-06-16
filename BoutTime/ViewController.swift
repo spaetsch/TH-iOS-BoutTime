@@ -33,12 +33,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var showScoreButton: UIButton!
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
-    var roundQuiz = BookQuiz(events: [])    // random selection of four unique books for a given round
+    var roundQuiz = BookQuiz(questions: [])    // random selection of four unique books for a given round
     
     // game constants
     let numberOfBooks = 4
     let numberOfRounds = 3 // 6
-    let maxTime = 15 //60 seconds
+    let maxTime = 3 //60 seconds
 
     let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
-            self.loadedQuiz = BookQuiz(events:QuizUnarchiver.bookQuizFromArray(array))
+            self.loadedQuiz = BookQuiz(questions:QuizUnarchiver.bookQuizFromArray(array))
         } catch let error {
             //TODO: be more specific?
             fatalError("\(error)")
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
 
     // resets questions, timer, buttons
     @IBAction func setupNextRound() {
-        roundQuiz = BookQuiz(events: []) // blank quiz
+        roundQuiz = BookQuiz(questions: []) // blank quiz
         enableChoices(true)
         setQuestions(loadedQuiz)
         createTimer()
@@ -135,8 +135,8 @@ class ViewController: UIViewController {
 
     // shuffles the loaded quiz and stores the first four elements in roundQuiz to create question set for a given round
     func setQuestions(original: BookQuiz) {
-        let shuffledQuiz = BookQuiz(events: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.events) as! [Book])
-        roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
+        let shuffledQuiz = BookQuiz(questions: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.questions) as! [Book])
+        roundQuiz.questions += shuffledQuiz.questions[0...numberOfBooks-1]
     }
     
     func createAttrBookString(title: String, author: String) -> NSMutableAttributedString{
@@ -157,47 +157,48 @@ class ViewController: UIViewController {
     }
     
     
-    // sets the label text for each choice to .desc from events array
+    // sets the label text for each choice to .desc from questions array
     func displayRound(){
 
-        let attLabelText1 = createAttrBookString(roundQuiz.events[0].title, author: roundQuiz.events[0].author)
-        let attLabelText2 = createAttrBookString(roundQuiz.events[1].title, author: roundQuiz.events[1].author)
-        let attLabelText3 = createAttrBookString(roundQuiz.events[2].title, author: roundQuiz.events[2].author)
-        let attLabelText4 = createAttrBookString(roundQuiz.events[3].title, author: roundQuiz.events[3].author)
+        let attLabelText1 = createAttrBookString(roundQuiz.questions[0].title, author: roundQuiz.questions[0].author)
+        let attLabelText2 = createAttrBookString(roundQuiz.questions[1].title, author: roundQuiz.questions[1].author)
+        let attLabelText3 = createAttrBookString(roundQuiz.questions[2].title, author: roundQuiz.questions[2].author)
+        let attLabelText4 = createAttrBookString(roundQuiz.questions[3].title, author: roundQuiz.questions[3].author)
 
         q1BookButton.setAttributedTitle(attLabelText1, forState: .Normal)
         q2BookButton.setAttributedTitle(attLabelText2, forState: .Normal)
         q3BookButton.setAttributedTitle(attLabelText3, forState: .Normal)
         q4BookButton.setAttributedTitle(attLabelText4, forState: .Normal)
-
     }
     
     // sorts an array of Books in ascending order by .year
     func sortBooks(books: BookQuiz) -> [Book]{
-        return books.events.sort({$0.year < $1.year})
+        return books.questions.sort({$0.year < $1.year})
     }
     
     // checks order of user choices against correct ascending order
     func checkAnswers(){
+        
         questionsAsked += 1
         
-        let answerKey = sortBooks(roundQuiz)
+        let sortedQuiz = sortBooks(roundQuiz)
         
-//        if (q1BookButton.titleLabel?.text == answerKey[0].desc && q2BookButton.titleLabel?.text == answerKey[1].desc
-//            && Q3Label.text == answerKey[2].desc && Q4Label.text == answerKey[3].desc){
-//            questionsCorrect += 1
-//            if (questionsAsked < numberOfRounds){
-//                nextButton.setImage(UIImage(named: "next_round_success"), forState: UIControlState.Normal)
-//            } else {
-//                showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
-//            }
-//        }
-        if (questionsAsked < numberOfRounds){
-            nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
-        } else {
-            showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
+        if let answer1 = q1BookButton.titleLabel?.text,
+        let answer2 = q2BookButton.titleLabel?.text,
+        let answer3 = q3BookButton.titleLabel?.text,
+        let answer4 = q4BookButton.titleLabel?.text {
+            
+            if answer1 == "\(sortedQuiz[0].title)\nby \(sortedQuiz[0].author)"
+                && answer2 == "\(sortedQuiz[1].title)\nby \(sortedQuiz[1].author)"
+                && answer3 == "\(sortedQuiz[2].title)\nby \(sortedQuiz[2].author)"
+                && answer4 == "\(sortedQuiz[3].title)\nby \(sortedQuiz[3].author)" {
+            } else {
+                nextButton.setImage(UIImage(named: "next_round_fail"), forState: UIControlState.Normal)
+                showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
+            }
         }
-        
+
+        // if game has reached final around, hide next round button and review show final score button
         if questionsAsked == numberOfRounds {
             nextButton.hidden = true
             timerLabel.hidden = true
@@ -240,7 +241,7 @@ class ViewController: UIViewController {
     // grabs the associated URL for info on a button
     func setURL(senderButton: UIButton) -> String {
 //        if let label = senderButton.titleLabel {
-//            for item in roundQuiz.events {
+//            for item in roundQuiz.questions {
 //                if item.desc == label.text {
 //                    return item.URL
 //                }
@@ -294,7 +295,7 @@ class ViewController: UIViewController {
             
             timerLabel.hidden = true
             nextButton.hidden = false
-            shakeTapLabel.text = "Tap events for more info"
+            shakeTapLabel.text = "Tap books for more info"
         }
     }
 }
