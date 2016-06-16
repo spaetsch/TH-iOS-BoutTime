@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
     var roundQuiz = BookQuiz(questions: [])    // random selection of four unique books for a given round
-    
+
     // game constants
     let numberOfBooks = 4
     let numberOfRounds = 6 // 6
@@ -43,7 +43,6 @@ class ViewController: UIViewController {
     let soundFail = "/audio/IncorrectBuzz"
     var currSoundID: SystemSoundID = 0
 
-    
     let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
     // game counters
@@ -284,7 +283,9 @@ class ViewController: UIViewController {
             
             q1BookButton.enabled = false
             q2BookButton.enabled = false
-            
+            q3BookButton.enabled = false
+            q4BookButton.enabled = false
+
             timerLabel.hidden = false
             nextButton.hidden = true
             shakeTapLabel.text = "Shake to complete"
@@ -299,6 +300,8 @@ class ViewController: UIViewController {
             
             q1BookButton.enabled = true
             q2BookButton.enabled = true
+            q3BookButton.enabled = true
+            q4BookButton.enabled = true
             
             timerLabel.hidden = true
             nextButton.hidden = false
