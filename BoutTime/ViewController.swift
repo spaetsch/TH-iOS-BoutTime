@@ -142,36 +142,37 @@ class ViewController: UIViewController {
         roundQuiz.events += shuffledQuiz.events[0...numberOfBooks-1]
     }
     
-    // sets the label text for each choice to .desc from events array
-    func displayRound(){
+    func createAttrBookString(title: String, author: String) -> NSMutableAttributedString{
+        let byline = "\nby \(author)"
         
-        let title1 = "Testy Title"
-        let byline = "\nby Test Author"
-        
-        let fontAtt = [NSFontAttributeName : UIFont.systemFontOfSize(14.0)]
         let boldFontAtt = [NSFontAttributeName : UIFont.boldSystemFontOfSize(16.0)]
+        let fontAtt = [NSFontAttributeName : UIFont.systemFontOfSize(14.0)]
+        let textColorAtt = [NSForegroundColorAttributeName : UIColor(red: 0.063, green: 0.365, blue: 0.486, alpha: 1.00)]
         
-        let boldTitle = NSAttributedString(string: title1, attributes: boldFontAtt)
+        let boldTitle = NSAttributedString(string: title, attributes: boldFontAtt)
         let normalAuthor = NSAttributedString(string: byline, attributes: fontAtt)
-        
+    
         let attLabelText = NSMutableAttributedString(attributedString: boldTitle)
         attLabelText.appendAttributedString(normalAuthor)
         
-        //let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(16)]
-        
-        //let boldtitle1 = NSMutableAttributedString(string:title1, attributes:att)
-        
-        //UIFont.boldSystemFontOfSize(18.0)
-        //UIFont.systemFontOfSize(19.0)
-        //self.setAttributedTitle(title: NSAttributedString?, forState: <#T##UIControlState#>)
+        attLabelText.addAttributes(textColorAtt, range: NSRange(location: 0, length: attLabelText.length))
+        return attLabelText
+    }
+    
+    
+    // sets the label text for each choice to .desc from events array
+    func displayRound(){
 
-        q1BookButton.setAttributedTitle(attLabelText, forState: .Normal)
-        //q1BookButton.setTitle("\(title1)\nby \(author1)", forState: .Normal)
-       // q2BookButton.setTitle(roundQuiz.events[1].desc, forState: .Normal)
-        
+        let attLabelText1 = createAttrBookString(roundQuiz.events[0].title, author: roundQuiz.events[0].author)
+        let attLabelText2 = createAttrBookString(roundQuiz.events[1].title, author: roundQuiz.events[1].author)
+        let attLabelText3 = createAttrBookString(roundQuiz.events[2].title, author: roundQuiz.events[2].author)
+        let attLabelText4 = createAttrBookString(roundQuiz.events[3].title, author: roundQuiz.events[3].author)
 
-       // Q3Label.text = "\(roundQuiz.events[2].desc)"
-       // Q4Label.text = "\(roundQuiz.events[3].desc)"
+        q1BookButton.setAttributedTitle(attLabelText1, forState: .Normal)
+        q2BookButton.setAttributedTitle(attLabelText2, forState: .Normal)
+        //q3BookButton.setAttributedTitle(attLabelText3, forState: .Normal)
+        //q4BookButton.setAttributedTitle(attLabelText4, forState: .Normal)
+
     }
     
     // sorts an array of Books in ascending order by .year
