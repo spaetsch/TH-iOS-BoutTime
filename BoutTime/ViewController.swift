@@ -240,13 +240,13 @@ class ViewController: UIViewController {
     
     // grabs the associated URL for info on a button
     func setURL(senderButton: UIButton) -> String {
-//        if let label = senderButton.titleLabel {
-//            for item in roundQuiz.questions {
-//                if item.desc == label.text {
-//                    return item.URL
-//                }
-//            }
-//        }
+       if let labelText = senderButton.titleLabel?.text {
+            for item in roundQuiz.questions {
+                if labelText == "\(item.title)\nby \(item.author)" {
+                    return item.URL
+                }
+            }
+        }
         return URL404
     }
     

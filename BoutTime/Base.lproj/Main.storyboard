@@ -34,7 +34,6 @@
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="setURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXN-ec-Dlj"/>
                                                     <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="DrB-BZ-qgF"/>
                                                 </connections>
                                             </button>
@@ -68,6 +67,9 @@
                                                 <state key="normal" title="Title Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="H8n-Yv-dGD"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-mo-aUZ" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
@@ -108,6 +110,9 @@
                                                 <state key="normal" title="Title Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="TgA-oR-ODF"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-Ln-vgx" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
@@ -148,6 +153,9 @@
                                                 <state key="normal" title="Title Title by Author Author">
                                                     <color key="titleColor" red="0.062745098040000002" green="0.36470588240000001" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="AN8-3B-Lr2" kind="presentation" identifier="showWebViewSegue" id="TSI-Ua-8HB"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pjX-4D-64X" userLabel="Button Stack View">
                                                 <rect key="frame" x="500" y="0.0" width="40" height="106"/>
@@ -356,4 +364,7 @@
         <image name="up_half" width="158" height="229"/>
         <image name="up_half_selected" width="158" height="229"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TgA-oR-ODF"/>
+    </inferredMetricsTieBreakers>
 </document>
