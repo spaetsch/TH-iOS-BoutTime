@@ -32,20 +32,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var showScoreButton: UIButton!
     
     var loadedQuiz: BookQuiz                // set of all possible questions, converted from plist
-    var roundQuiz = BookQuiz(questions: [])    // random selection of four unique books for a given round
+    var roundQuiz = BookQuiz(questions: []) // random selection of four unique books for a given round
 
     // game constants
     let numberOfBooks = 4
     let numberOfRounds = 6 // 6
     let maxTime = 60 //60 seconds
 
+    // sound constants and variables
     let soundSuccess = "/audio/CorrectDing"
     let soundFail = "/audio/IncorrectBuzz"
     var currSoundID: SystemSoundID = 0
 
     let URL404 = "https://en.wikipedia.org/wiki/HTTP_404"
 
-    // game counters
+    // game counter variables
     var questionsAsked = 0
     var questionsCorrect = 0
     var timerCounter: Int = 0
@@ -56,7 +57,6 @@ class ViewController: UIViewController {
             let array = try PlistConverter.arrayFromFile("BookQuiz", ofType: "plist")
             self.loadedQuiz = BookQuiz(questions:QuizUnarchiver.bookQuizFromArray(array))
         } catch let error {
-            //TODO: be more specific?
             fatalError("\(error)")
         }
         super.init(coder: aDecoder)
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // before segueing to another view, pass along the required variable values
+    // Before segueing to another view, pass along the required variable values
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showScoreSegue" {
             if let destination = segue.destinationViewController as? ScoreViewController {
@@ -85,27 +85,26 @@ class ViewController: UIViewController {
                 destination.webViewURL = setURL(sender as! UIButton)
             }
         }
-        
     }
     
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
-    // respond to shaking device by ending the round
+    // Respond to shaking device by ending the round
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             timerCounter = 0  // run the timer out, triggers reset and evaluation of answer
         }
     }
     
-    // when unwinding back to main view, check if game needs to be reset
+    // When unwinding back to main view, check if game needs to be reset
     @IBAction func unwindHandler(unwindSegue: UIStoryboardSegue){
         if unwindSegue.identifier == "unwindFromScore" {
             setupGame()
         }
     }
     
-    // when arrow button is clicked, handles determining which labels should be swapped
+    // When an arrow button is clicked, handles determining which labels should be swapped
     @IBAction func arrowClick(sender: UIButton) {
         switch sender {
         case Q1DownButton:
@@ -121,11 +120,11 @@ class ViewController: UIViewController {
         case Q4UpButton:
             swapButtonTitles(q4BookButton, dest: q3BookButton)
         default:
-            print("oops")
+            print("error")
         }
     }
 
-    // resets questions, timer, buttons
+    // Resets questions, timer, buttons
     @IBAction func setupNextRound() {
         roundQuiz = BookQuiz(questions: []) // blank quiz
         enableChoices(true)
@@ -136,12 +135,13 @@ class ViewController: UIViewController {
 
     // MARK: Helper Functions -- Managing the quiz questions
 
-    // shuffles the loaded quiz and stores the first four elements in roundQuiz to create question set for a given round
+    // Shuffles the loaded quiz and stores the first four elements in roundQuiz to create question set for a given round
     func setQuestions(original: BookQuiz) {
         let shuffledQuiz = BookQuiz(questions: GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(original.questions) as! [Book])
         roundQuiz.questions += shuffledQuiz.questions[0...numberOfBooks-1]
     }
     
+    // Takes the title and author strings and returns them with formatting and page break as a NSMutableAttributedString
     func createAttrBookString(title: String, author: String) -> NSMutableAttributedString{
         let byline = "\nby \(author)"
         
@@ -159,8 +159,7 @@ class ViewController: UIViewController {
         return attLabelText
     }
     
-    
-    // sets the label text for each choice to .desc from questions array
+    // Sets the label text for each choice to attributed text assembled from author and title strings in roundQuiz
     func displayRound(){
 
         let attLabelText1 = createAttrBookString(roundQuiz.questions[0].title, author: roundQuiz.questions[0].author)
@@ -174,12 +173,12 @@ class ViewController: UIViewController {
         q4BookButton.setAttributedTitle(attLabelText4, forState: .Normal)
     }
     
-    // sorts an array of Books in ascending order by .year
+    // Sorts an array of Books in ascending order by .year
     func sortBooks(books: BookQuiz) -> [Book]{
         return books.questions.sort({$0.year < $1.year})
     }
     
-    // checks order of user choices against correct ascending order
+    // Checks order of user choices against correct ascending order
     func checkAnswers(){
         
         questionsAsked += 1
@@ -199,18 +198,18 @@ class ViewController: UIViewController {
                 questionsCorrect += 1
                 nextButton.setImage(UIImage(named: "next_round_success"), forState: .Normal)
                 showScoreButton.setImage(UIImage(named: "show_score_success"), forState: .Normal)
-                loadSound(soundSuccess, soundID: &currSoundID, type: "wav")    //Loads and plays "correct answer" sound
+                loadSound(soundSuccess, soundID: &currSoundID, type: "wav") //Loads and plays "correct answer" sound
                 AudioServicesPlaySystemSound(currSoundID)
                 
             } else {
                 nextButton.setImage(UIImage(named: "next_round_fail"), forState: .Normal)
                 showScoreButton.setImage(UIImage(named: "show_score_fail"), forState: .Normal)
-                loadSound(soundFail, soundID: &currSoundID, type: "wav")    //Loads and plays "correct answer" sound
+                loadSound(soundFail, soundID: &currSoundID, type: "wav")    //Loads and plays "incorrect answer" sound
                 AudioServicesPlaySystemSound(currSoundID)
             }
         }
 
-        // if game has reached final around, hide next round button and review show final score button
+        // If game has reached final around, hide next round button and reveal show final score button
         if questionsAsked == numberOfRounds {
             nextButton.hidden = true
             timerLabel.hidden = true
@@ -220,7 +219,7 @@ class ViewController: UIViewController {
     
     // MARK: Helper Functions -- Managing the counter
 
-    // resets timer to max
+    // Resets timer to max
     func createTimer(){
         timerCounter = maxTime
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(manageCounter), userInfo: nil, repeats: true)
@@ -242,7 +241,7 @@ class ViewController: UIViewController {
     
     // MARK: Helper Functions -- Other
 
-    // in addition to setting up new round, resets the game counters
+    // In addition to setting up new round, resets the game counters
     func setupGame(){
         questionsAsked = 0
         questionsCorrect = 0
@@ -250,7 +249,7 @@ class ViewController: UIViewController {
         setupNextRound()
     }
     
-    // grabs the associated URL for info on a button
+    // Returns the associated URL for info on a button
     func setURL(senderButton: UIButton) -> String {
        if let labelText = senderButton.titleLabel?.text {
             for item in roundQuiz.questions {
@@ -262,16 +261,17 @@ class ViewController: UIViewController {
         return URL404
     }
     
-    // given a origin and destination label, swaps their text fields
+    // Given a origin and destination button, swaps their text contents
     
     func swapButtonTitles(origin: UIButton, dest: UIButton){
         let first = origin.attributedTitleForState(.Normal)
         let second = dest.attributedTitleForState(.Normal)
+        
         origin.setAttributedTitle(second, forState: .Normal)
         dest.setAttributedTitle(first, forState: .Normal)
     }
     
-    // toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
+    // Toggles between timer visible and arrow buttons enabled vs. showing nextButton and arrow buttons disabled
     func enableChoices(show: Bool){
         if show {
             Q1DownButton.enabled = true
@@ -308,7 +308,6 @@ class ViewController: UIViewController {
             shakeTapLabel.text = "Tap books for more info"
         }
     }
-    
     
     // Loads sound file at given path of given file type
     func loadSound(path:String, soundID: UnsafeMutablePointer<SystemSoundID>, type:String){
